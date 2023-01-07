@@ -7,12 +7,14 @@ public class FurSealHero : MonoBehaviour
 {
     Rigidbody rigid;
 
+    [SerializeField] private GameObject gb;
+
     [Header("Set in Inspector")]
     public Vector3 toRot;
     public Vector3 toRotHelper;
     public Vector3 zeroVec = new Vector3(0, 360, 0);
     public int lungeImpulse = 5000;
-    public float speed = 5f;
+    public float speed = 1f;
 
     public float smooth;
 
@@ -31,7 +33,7 @@ public class FurSealHero : MonoBehaviour
         JumpHero();
     }
 
-   public bool vectorEquals(Vector3 v1, Vector3 v2)
+    public bool vectorEquals(Vector3 v1, Vector3 v2)
     {
         if (v1.Equals(v2))
         {
@@ -66,47 +68,7 @@ public class FurSealHero : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            for (int i = 45; i <= 360; i = i + 45)
-            {
-                if (vectorEquals(toRotHelper, new Vector3(0, i, 0)))
-                {
-                    switch(i)
-                    {
-                        case 45:
-                            transform.position += new Vector3(1, 0, -1);
-                            Debug.Log(transform.position);
-                            break;
-
-                        case 90:
-                            transform.position += new Vector3(0, 0, -1);
-                            break;
-
-                        case 135:
-                            transform.position += new Vector3(-1, 0, -1);
-                            break;
-
-                        case 180:
-                            transform.position += new Vector3(-1, 0, 0);
-                            break;
-
-                        case 225:
-                            transform.position += new Vector3(-1, 0, 1);
-                            break;
-
-                        case 270:
-                            transform.position += new Vector3(0, 0, 1);
-                            break;
-
-                        case 315:
-                            transform.position += new Vector3(0, 0, 1);
-                            break;
-
-                        case 360:
-                            transform.position += new Vector3(1, 0, 0);
-                            break;
-                    }    
-                }
-            }
+            transform.position = Vector3.MoveTowards(transform.position, gb.transform.position, speed);
         }
     }
 }
