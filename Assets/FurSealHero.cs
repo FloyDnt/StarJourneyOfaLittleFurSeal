@@ -18,7 +18,7 @@ public class FurSealHero : MonoBehaviour
 
     void Start()
     {
-
+        StartCoroutine(AroundHero());
     }
 
     void Awake()
@@ -28,11 +28,7 @@ public class FurSealHero : MonoBehaviour
 
     void Update()
     {
-                JumpHero();
-
-        AroundHero();
-
-        // Debug.Log(toRotHelper);
+        JumpHero();
     }
 
    public bool vectorEquals(Vector3 v1, Vector3 v2)
@@ -47,19 +43,22 @@ public class FurSealHero : MonoBehaviour
         }
     }
 
-    private void AroundHero()
+    private IEnumerator AroundHero()
     {
-        Quaternion var = transform.rotation;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(toRotHelper), smooth);
-        var = transform.rotation;
+        while (true)
+        {
+            if (!vectorEquals(zeroVec, toRotHelper))
+            {
+                toRotHelper = toRotHelper + toRot;
+            }
+            else
+            {
+                toRotHelper = toRot;
+            }
 
-        if (vectorEquals(zeroVec, toRotHelper))
-        {
-            toRotHelper = toRot;
-        }
-        else
-        {
-            toRotHelper = toRotHelper + toRot;
+            this.transform.rotation = Quaternion.Euler(toRotHelper);
+
+            yield return new WaitForSeconds(1);
         }
     }
 
@@ -74,15 +73,16 @@ public class FurSealHero : MonoBehaviour
                     switch(i)
                     {
                         case 45:
-                            transform.position += new Vector3(1, 0, 1);
+                            transform.position += new Vector3(1, 0, -1);
+                            Debug.Log(transform.position);
                             break;
 
                         case 90:
-                            transform.position += new Vector3(0, 0, 1);
+                            transform.position += new Vector3(0, 0, -1);
                             break;
 
                         case 135:
-                            transform.position += new Vector3(-1, 0, 1);
+                            transform.position += new Vector3(-1, 0, -1);
                             break;
 
                         case 180:
@@ -90,15 +90,15 @@ public class FurSealHero : MonoBehaviour
                             break;
 
                         case 225:
-                            transform.position += new Vector3(-1, 0, -1);
+                            transform.position += new Vector3(-1, 0, 1);
                             break;
 
                         case 270:
-                            transform.position += new Vector3(0, 0, -1);
+                            transform.position += new Vector3(0, 0, 1);
                             break;
 
                         case 315:
-                            transform.position += new Vector3(0, 0, -1);
+                            transform.position += new Vector3(0, 0, 1);
                             break;
 
                         case 360:
