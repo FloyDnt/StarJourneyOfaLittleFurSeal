@@ -176,7 +176,6 @@ GameObject:
   - component: {fileID: 364101979}
   - component: {fileID: 364101982}
   - component: {fileID: 364101981}
-  - component: {fileID: 364101980}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -199,19 +198,6 @@ Transform:
   m_Father: {fileID: 1286179158}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &364101980
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364101978}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &364101981
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -422,7 +408,6 @@ GameObject:
   - component: {fileID: 727341524}
   - component: {fileID: 727341527}
   - component: {fileID: 727341526}
-  - component: {fileID: 727341525}
   m_Layer: 0
   m_Name: Cube_0
   m_TagString: Untagged
@@ -445,19 +430,6 @@ Transform:
   m_Father: {fileID: 1286179158}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
---- !u!65 &727341525
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727341523}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &727341526
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -874,7 +846,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1286179160
 MonoBehaviour:
@@ -906,7 +878,6 @@ GameObject:
   - component: {fileID: 2088419527}
   - component: {fileID: 2088419530}
   - component: {fileID: 2088419529}
-  - component: {fileID: 2088419528}
   m_Layer: 0
   m_Name: Cube_1
   m_TagString: Untagged
@@ -929,19 +900,6 @@ Transform:
   m_Father: {fileID: 1286179158}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
---- !u!65 &2088419528
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088419526}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2088419529
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1122,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5188053906451751483, guid: 8581ba9132703494a9da25078459be8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5188053906451751483, guid: 8581ba9132703494a9da25078459be8f, type: 3}
       propertyPath: m_LocalPosition.z
