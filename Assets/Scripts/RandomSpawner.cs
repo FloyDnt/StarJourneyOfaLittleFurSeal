@@ -18,6 +18,8 @@ public class RandomSpawner : MonoBehaviour
     {
         GameObject randomObject = new GameObject();
 
+        randomObjectList.Clear();
+
         while (true)
         {
             for (int i = 0; i != randomObjectList.Count; i++)
