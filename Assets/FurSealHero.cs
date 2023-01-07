@@ -58,7 +58,7 @@ public class FurSealHero : MonoBehaviour
 
             this.transform.rotation = Quaternion.Euler(toRotHelper);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(smooth);
         }
     }
 
