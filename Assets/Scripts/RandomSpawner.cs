@@ -9,15 +9,19 @@ public class RandomSpawner : MonoBehaviour
 
     public List<GameObject> randomObjectList;
 
+    public List<Transform> spawnPoints;
+
+    GameObject randomObject;
+
     void Start()
     {
+        spawnPoints = new List<Transform>(spawnPoints);
+
         StartCoroutine(Spawn());
     }
 
     private IEnumerator Spawn()
     {
-        GameObject randomObject = new GameObject();
-
         randomObjectList.Clear();
 
         while (true)
@@ -37,9 +41,9 @@ public class RandomSpawner : MonoBehaviour
                 if (randomGoodOrBadObject == 0 || randomGoodOrBadObject == 1)
                 {
                     var objectIndex = Random.Range(0, gameObjectsGood.Count);
-                    Vector3 randomPos = new Vector3(Random.Range(-10, 10), -6, Random.Range(-10, 10));
+                    var spawn = Random.Range(0, spawnPoints.Count);
 
-                    randomObject = Instantiate(gameObjectsGood[objectIndex], randomPos, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+                    randomObject = Instantiate(gameObjectsGood[objectIndex], spawnPoints[spawn].transform.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
 
                     randomObjectList.Add(randomObject);
 
@@ -48,9 +52,10 @@ public class RandomSpawner : MonoBehaviour
                 {
 
                     var objectIndex = Random.Range(0, gameObjectsBad.Count);
-                    Vector3 randomPos = new Vector3(Random.Range(-10, 10), -6, Random.Range(-10, 10));
+                    var spawn = Random.Range(0, spawnPoints.Count);
 
-                    randomObject = Instantiate(gameObjectsBad[objectIndex], randomPos, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+
+                    randomObject = Instantiate(gameObjectsBad[objectIndex], spawnPoints[spawn].transform.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
 
                     randomObjectList.Add(randomObject);
                 }
