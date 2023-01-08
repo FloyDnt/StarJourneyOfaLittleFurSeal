@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using UnityEngine.UI;
+using TMPro;
 
 public class FurSealHero : MonoBehaviour
 {
     [SerializeField] private GameObject gb;
+
+    public Image imageHealth_01;
+    public Image imageHealth_02;
+    public Image imageHealth_03;
+
+    int health = 0;
+
+    Color healthColor;
 
     [Header("Set in Inspector")]
     public Vector3 toRot;
@@ -16,15 +25,29 @@ public class FurSealHero : MonoBehaviour
     public float smooth;
 
     [Header("Set Dynamically")]
-    public Text scoreGT;
+    public TextMeshProUGUI scoreGT;
 
     void Start()
     {
         StartCoroutine(AroundHero());
 
-        GameObject scoreGO = GameObject.Find("ScoreCounter");
-        scoreGT = scoreGO.GetComponent<Text>();
+        GameObject scoreGO = GameObject.Find("Score_Text_Box");
+        scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
         scoreGT.text = "0";
+
+        healthColor = new Color(255f, 255f, 255f);
+
+        GameObject imageFindHealth_01 = GameObject.Find("Health_01");
+        imageHealth_01 = imageFindHealth_01.GetComponent<Image>();
+        imageHealth_01.color = healthColor;
+
+        GameObject imageFindHealth_02 = GameObject.Find("Health_02");
+        imageHealth_02 = imageFindHealth_02.GetComponent<Image>();
+        imageHealth_02.color = healthColor;
+
+        GameObject imageFindHealth_03 = GameObject.Find("Health_03");
+        imageHealth_03 = imageFindHealth_03.GetComponent<Image>();
+        imageHealth_03.color = healthColor;
     }
 
     void Update()
@@ -84,6 +107,22 @@ public class FurSealHero : MonoBehaviour
             {
                 HighScoreResult.scoreResult = score;
             }
+        }
+
+        if (health == 0 && collidedWith.tag == "DangerCube")
+        {
+            imageHealth_03.color = new Color(255f, 255f, 255f, .5f);
+            health++;
+        }
+        else if (health == 1 && collidedWith.tag == "DangerCube")
+        {
+            imageHealth_02.color = new Color(255f, 255f, 255f, .5f);
+            health++;
+        }
+        else if (health == 2 && collidedWith.tag == "DangerCube")
+        {
+            imageHealth_01.color = new Color(255f, 255f, 255f, .5f);
+            Destroy(gameObject);
         }
     }
 }

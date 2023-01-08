@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888051323105772760}
+  - component: {fileID: -7164941596564758624}
+  - component: {fileID: -4577887296238013975}
   m_Layer: 0
   m_Name: PR_Urchin
-  m_TagString: Untagged
+  m_TagString: DangerCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +34,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7164941596564758624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601985110236760488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa3b408d2ab7a5449e38f11c92af281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageHealth_01: {fileID: 0}
+  imageHealth_02: {fileID: 0}
+  imageHealth_03: {fileID: 0}
+--- !u!65 &-4577887296238013975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601985110236760488}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2954979154640429010
 PrefabInstance:
   m_ObjectHideFlags: 0
