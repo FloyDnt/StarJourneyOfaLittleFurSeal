@@ -7,15 +7,17 @@ using TMPro;
 
 public class FurSealHero : MonoBehaviour
 {
-    [SerializeField] private GameObject gb;
-
     public Image imageHealth_01;
     public Image imageHealth_02;
     public Image imageHealth_03;
 
+    public GameObject UI_Death_Screen;
+
     int health = 0;
 
     Color healthColor;
+
+    [SerializeField] private GameObject gb;
 
     [Header("Set in Inspector")]
     public Vector3 toRot;
@@ -123,6 +125,9 @@ public class FurSealHero : MonoBehaviour
         {
             imageHealth_01.color = new Color(255f, 255f, 255f, .5f);
             Destroy(gameObject);
+
+            UI_Death_Screen.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }

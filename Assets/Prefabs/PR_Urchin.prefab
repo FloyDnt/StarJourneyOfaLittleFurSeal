@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1888051323105772760}
   - component: {fileID: -7164941596564758624}
   - component: {fileID: -4577887296238013975}
+  - component: {fileID: -5162606507219089859}
   m_Layer: 0
   m_Name: PR_Urchin
   m_TagString: DangerCube
@@ -46,9 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa3b408d2ab7a5449e38f11c92af281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageHealth_01: {fileID: 0}
-  imageHealth_02: {fileID: 0}
-  imageHealth_03: {fileID: 0}
 --- !u!65 &-4577887296238013975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62,6 +60,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-5162606507219089859
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601985110236760488}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1001 &2954979154640429010
 PrefabInstance:
   m_ObjectHideFlags: 0
