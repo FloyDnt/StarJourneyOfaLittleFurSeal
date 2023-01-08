@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class PickedUpObject : MonoBehaviour
 {
-    private void Start()
-    {
-
-    }
+    [SerializeField] GameObject pClearWater;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,6 +13,9 @@ public class PickedUpObject : MonoBehaviour
         if (collidedWith.tag == "Player")
         {
             Destroy(gameObject);
+            GameObject explosion = Instantiate(pClearWater);
+            Destroy(explosion, 0.75f);
+
         }
     }
 }

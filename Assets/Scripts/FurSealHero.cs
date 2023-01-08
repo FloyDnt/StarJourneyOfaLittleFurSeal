@@ -33,10 +33,13 @@ public class FurSealHero : MonoBehaviour
     {
         StartCoroutine(AroundHero());
 
-        GameObject scoreGO = GameObject.Find("Score_Text_Box");
-        scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
-        scoreGT.text = "0";
+        ScoreGen();
 
+        HealthGen();
+    }
+
+    private void HealthGen()
+    {
         healthColor = new Color(255f, 255f, 255f);
 
         GameObject imageFindHealth_01 = GameObject.Find("Health_01");
@@ -50,6 +53,18 @@ public class FurSealHero : MonoBehaviour
         GameObject imageFindHealth_03 = GameObject.Find("Health_03");
         imageHealth_03 = imageFindHealth_03.GetComponent<Image>();
         imageHealth_03.color = healthColor;
+    }
+
+    private void ScoreGen()
+    {
+        GameObject scoreGO = GameObject.Find("Score_Text_Box");
+        scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
+        scoreGT.text = "0";
+    }
+
+    private void ParticleGen()
+    {
+        GameObject particleWater = GameObject.Find("P_Clear_Water");
     }
 
     void Update()
@@ -115,6 +130,7 @@ public class FurSealHero : MonoBehaviour
         {
             imageHealth_03.color = new Color(255f, 255f, 255f, .5f);
             health++;
+
         }
         else if (health == 1 && collidedWith.tag == "DangerCube")
         {
