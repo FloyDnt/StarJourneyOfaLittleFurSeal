@@ -181,7 +181,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NAZAR MARKOV <br>ANNA MARKOVA <br>NIKITA TERLYUKEVICH <br>ALEXEY PANASYUK
+  m_text: NAZAR MARKOV - DESIGN <br>ANNA MARKOVA - 3D <br>NIKITA TERLYUKEVICH - CODE
+    <br>ALEXEY PANASYUK - MUSIC
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ae6bc08ee4f19e48879f030cdbd1d72, type: 2}
   m_sharedMaterial: {fileID: -6489167893417572066, guid: 4ae6bc08ee4f19e48879f030cdbd1d72, type: 2}
@@ -208,8 +209,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 19
+  m_fontSizeBase: 19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
