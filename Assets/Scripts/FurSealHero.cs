@@ -24,6 +24,8 @@ public class FurSealHero : MonoBehaviour
     //Particle
     public ParticleSystem pClearWater = null;
     public ParticleSystem pBloodWater = null;
+    public ParticleSystem pClearDamage = null;
+    public ParticleSystem pBloodDamage = null;
 
     //Sound
     AudioSource sourceHero;
@@ -166,6 +168,11 @@ public class FurSealHero : MonoBehaviour
             scoreGT.text = "Score: " + score;
 
         }
+        
+        if (collidedWith.tag == "DangerCube")
+        {
+            DamageParticle();
+        }
 
         if (health == 0 && collidedWith.tag == "DangerCube")
         {
@@ -191,6 +198,7 @@ public class FurSealHero : MonoBehaviour
         }
         else if (health == 1 && collidedWith.tag == "DangerCube")
         {
+
             imageHealth_02.color = new Color(255f, 255f, 255f, .5f);
             health++;
 
@@ -208,10 +216,12 @@ public class FurSealHero : MonoBehaviour
                 GameObject audioSourceFinder = GameObject.Find("AudioSource");
                 sourceHero = audioSourceFinder.GetComponent<AudioSource>();
                 sourceHero.PlayOneShot(clip_sad_2);
+
             }
         }
         else if (health == 2 && collidedWith.tag == "DangerCube")
         {
+
             int sound = Random.Range(0, 2);
 
             if (sound == 0)
@@ -275,7 +285,16 @@ public class FurSealHero : MonoBehaviour
 
     public void DamageParticle()
     {
+        bool b_waterCheckBlood = BloodWaterCheck.activeInHierarchy;
 
+        if (b_waterCheckBlood == false)
+        {
+            pClearDamage.Play();
+        }
+        else if (b_waterCheckBlood == true)
+        {
+            pBloodDamage.Play();
+        }
     }
 
     public void CheckFinalState()
