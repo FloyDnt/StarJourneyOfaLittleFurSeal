@@ -17,6 +17,7 @@ public class SeaOfBlood : Ocean
     private float waterSpeed = 1f;
 
     public GameObject UI_Final_Screen;
+    public GameObject UI_Score_Panel;
 
     //Sound
     [SerializeField] AudioClip bloodWaveSound;
@@ -183,6 +184,8 @@ public class SeaOfBlood : Ocean
         sourceHero = audioSourceFinder.GetComponent<AudioSource>();
         sourceHero.PlayOneShot(endblood);
 
+
+        UI_Score_Panel.SetActive(false);
         UI_Final_Screen.SetActive(true);
         Time.timeScale = 0;
     }

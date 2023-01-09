@@ -76,7 +76,7 @@ public class Sea : Ocean
                 waitTime -= Time.deltaTime;
             }
 
-            if (waterBlood == 2 && waterBloodStop == true)
+            if (waterBlood == 7 && waterBloodStop == true)
             {
                 changeWaterForBlood();
                 ChangeBloodUI();

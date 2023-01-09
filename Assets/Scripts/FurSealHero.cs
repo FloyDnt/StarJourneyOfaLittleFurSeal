@@ -19,6 +19,8 @@ public class FurSealHero : MonoBehaviour
     public GameObject WaterCheck;
     public GameObject BloodWaterCheck;
 
+    public GameObject UI_Final_Screen;
+
     //Particle
     public ParticleSystem pClearWater = null;
     public ParticleSystem pBloodWater = null;
@@ -33,6 +35,7 @@ public class FurSealHero : MonoBehaviour
 
     int health = 0;
     int score = 0;
+    int scoreOfBank = 0;
 
     Color healthColor;
 
@@ -48,6 +51,10 @@ public class FurSealHero : MonoBehaviour
 
     [Header("Set Dynamically")]
     public TextMeshProUGUI scoreGT;
+    public TextMeshProUGUI finalScore;
+
+    bool b_final_screen;
+
 
     void Start()
     {
@@ -58,6 +65,8 @@ public class FurSealHero : MonoBehaviour
         ScoreGen();
 
         HealthGen();
+
+        b_final_screen = UI_Final_Screen.activeInHierarchy;
     }
 
     private void HealthGen()
@@ -81,13 +90,21 @@ public class FurSealHero : MonoBehaviour
     {
         GameObject scoreGO = GameObject.Find("Score_Text_Box");
         scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
-        scoreGT.text = "0";
+        scoreGT.text = "Score: 0";
     }
 
     void Update()
     {
         JumpHero();
 
+        if (b_final_screen == true)
+        {
+            GameObject finalBS = GameObject.Find("ScoreBlood");
+            finalScore = finalBS.GetComponent<TextMeshProUGUI>();
+            finalScore.text = "CURRENT SCORE: ";
+
+            finalScore.text = "CURRENT SCORE: " + scoreOfBank;
+        }
     }
 
     public bool vectorEquals(Vector3 v1, Vector3 v2)
@@ -153,8 +170,8 @@ public class FurSealHero : MonoBehaviour
             PlayParticle();
 
             score += 100;
+            scoreOfBank = score;
             scoreGT.text = "Score: " + score;
-
 
         }
 
@@ -234,6 +251,9 @@ public class FurSealHero : MonoBehaviour
             {
                 UI_Death_Blood_Screen.SetActive(true);
                 SoundOfDeathBlood();
+            }
+            else { 
+
             }
 
             Time.timeScale = 0;

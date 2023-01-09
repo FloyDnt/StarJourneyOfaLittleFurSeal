@@ -223,6 +223,7 @@ MonoBehaviour:
   - {fileID: 1976372206}
   - {fileID: 220293963}
   UI_Final_Screen: {fileID: 1144871323}
+  UI_Score_Panel: {fileID: 944538436}
   bloodWaveSound: {fileID: 8300000, guid: cf084c31d416f6c45a6b6251a9f26290, type: 3}
   bloodOrgan: {fileID: 8300000, guid: 9589b0051ff45624f9e7de4b945371be, type: 3}
   endblood: {fileID: 8300000, guid: 36e0a1f2d10219948894f4e968e07a4b, type: 3}
@@ -1479,7 +1480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3232311453345158486, guid: fd54d4ec670910b49abb60067e3f1c32, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3232311453345158486, guid: fd54d4ec670910b49abb60067e3f1c32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2430,7 +2431,7 @@ GameObject:
   - component: {fileID: 891143373}
   - component: {fileID: 891143372}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreBlood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8430,7 +8431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286179154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6, z: 0}
+  m_LocalPosition: {x: 2, y: -6, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8476,6 +8477,7 @@ MonoBehaviour:
   UI_Death_Blood_Screen: {fileID: 1663013182}
   WaterCheck: {fileID: 1003674131}
   BloodWaterCheck: {fileID: 1159009132}
+  UI_Final_Screen: {fileID: 1144871323}
   pClearWater: {fileID: 2122240327}
   pBloodWater: {fileID: 2122240327}
   clip_jump_1: {fileID: 8300000, guid: 96fb3f0b22c0c4745b758f6e8b8442af, type: 3}
@@ -8491,6 +8493,7 @@ MonoBehaviour:
   smooth: 0
   jumpForce: 50
   scoreGT: {fileID: 0}
+  finalScore: {fileID: 0}
 --- !u!82 &1286179161
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10713,11 +10716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5188053906451751483, guid: 8581ba9132703494a9da25078459be8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5188053906451751483, guid: 8581ba9132703494a9da25078459be8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5188053906451751483, guid: 8581ba9132703494a9da25078459be8f, type: 3}
       propertyPath: m_LocalPosition.z
