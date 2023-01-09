@@ -12,6 +12,16 @@ public class FurSealHero : MonoBehaviour
     public Image imageHealth_03;
 
     public GameObject UI_Death_Screen;
+    public GameObject UI_Death_Blood_Screen;
+    public GameObject WaterCheck;
+    public GameObject BloodWaterCheck;
+
+    //Sound
+    AudioSource sourceHero;
+    [SerializeField] AudioClip clip_jump_1;
+    [SerializeField] AudioClip clip_jump_2;
+    [SerializeField] AudioClip clip_sad_1;
+    [SerializeField] AudioClip clip_sad_2;
 
     int health = 0;
 
@@ -32,6 +42,8 @@ public class FurSealHero : MonoBehaviour
     void Start()
     {
         StartCoroutine(AroundHero());
+
+        StartCoroutine(JumpHero());
 
         ScoreGen();
 
@@ -62,14 +74,9 @@ public class FurSealHero : MonoBehaviour
         scoreGT.text = "0";
     }
 
-    private void ParticleGen()
-    {
-        GameObject particleWater = GameObject.Find("P_Clear_Water");
-    }
-
     void Update()
     {
-        JumpHero();
+
     }
 
     public bool vectorEquals(Vector3 v1, Vector3 v2)
@@ -103,11 +110,32 @@ public class FurSealHero : MonoBehaviour
         }
     }
 
-    private void JumpHero()
+    private IEnumerator JumpHero()
     {
-        if (Input.GetMouseButtonDown(0))
+        while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, gb.transform.position, speed);
+            if (Input.GetMouseButtonDown(0))
+            {
+                transform.position = Vector3.MoveTowards(transform.position, gb.transform.position, speed);
+
+                int sound = Random.Range(0, 2);
+
+                if (sound == 0)
+                {
+                    GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                    sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                    sourceHero.PlayOneShot(clip_jump_1);
+
+                }
+                else if (sound == 1)
+                {
+                    GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                    sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                    sourceHero.PlayOneShot(clip_jump_2);
+                }
+            }
+
+            yield return new WaitForSeconds(0.005f);
         }
     }
 
@@ -131,18 +159,77 @@ public class FurSealHero : MonoBehaviour
             imageHealth_03.color = new Color(255f, 255f, 255f, .5f);
             health++;
 
+            int sound = Random.Range(0, 2);
+
+            if (sound == 0)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_sad_1);
+
+            }
+            else if (sound == 1)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_sad_2);
+            }
+
         }
         else if (health == 1 && collidedWith.tag == "DangerCube")
         {
             imageHealth_02.color = new Color(255f, 255f, 255f, .5f);
             health++;
+
+            int sound = Random.Range(0, 2);
+
+            if (sound == 0)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_sad_1);
+
+            }
+            else if (sound == 1)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_sad_2);
+            }
         }
         else if (health == 2 && collidedWith.tag == "DangerCube")
         {
+            int sound = Random.Range(0, 2);
+
+            if (sound == 0)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_sad_1);
+
+            }
+            else if (sound == 1)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_sad_2);
+            }
+
             imageHealth_01.color = new Color(255f, 255f, 255f, .5f);
             Destroy(gameObject);
 
-            UI_Death_Screen.SetActive(true);
+            bool b_waterCheck = WaterCheck.activeInHierarchy; 
+            bool b_bloodWaterCheck = BloodWaterCheck.activeInHierarchy;
+
+            if (b_waterCheck == true)
+            {
+                UI_Death_Screen.SetActive(true);
+            }
+            else if (b_bloodWaterCheck == true)
+            {
+                UI_Death_Blood_Screen.SetActive(true);
+            }
+
             Time.timeScale = 0;
         }
     }

@@ -7,12 +7,34 @@ public class PickedUpObject : MonoBehaviour
 {
     [SerializeField] GameObject pClearWater;
 
+    [SerializeField] AudioClip clip_1;
+    [SerializeField] AudioClip clip_2;
+
+    AudioSource sourceHero;
+
     private void OnCollisionEnter(Collision collision)
     {
         GameObject collidedWith = collision.gameObject;
         if (collidedWith.tag == "Player")
         {
+            int sound = Random.Range(0, 2);
+
+            if (sound == 0)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_1);
+
+            }
+            else if (sound == 1)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_2);
+            }
+
             Destroy(gameObject);
+
             GameObject explosion = Instantiate(pClearWater);
             Destroy(explosion, 0.75f);
 

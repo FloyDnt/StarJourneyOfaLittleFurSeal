@@ -22,8 +22,6 @@ public class RandomSpawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        randomObjectList.Clear();
-
         while (true)
         {
             for (int i = 0; i != randomObjectList.Count; i++)
@@ -33,6 +31,8 @@ public class RandomSpawner : MonoBehaviour
                     Destroy(randomObjectList[i].gameObject);
                 }
             }
+
+            randomObjectList.Clear();
 
             for (int i = 0; i <= 9; i++)
             {

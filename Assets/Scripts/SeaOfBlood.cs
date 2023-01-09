@@ -12,6 +12,11 @@ public class SeaOfBlood : MonoBehaviour
 
     private float waterSpeed = 1f;
 
+    //Sound
+    [SerializeField] AudioClip bloodWaveSound;
+    AudioSource sourceHero;
+    bool checkBloodWaveSound = true;
+
     private float waitTime;
     public float startWaitTime;
 
@@ -24,6 +29,7 @@ public class SeaOfBlood : MonoBehaviour
     {
         if (bloodStop == false && waitTime >= 0)
         {
+            checkBloodWaveSound = true;
             waitTime -= Time.deltaTime;
         }
         else
@@ -64,6 +70,15 @@ public class SeaOfBlood : MonoBehaviour
     private void Water()
     {
         transform.position = Vector3.MoveTowards(transform.position, points[i].transform.position, waterSpeed * Time.fixedDeltaTime);
+
+        if (checkBloodWaveSound == true)
+        {
+            checkBloodWaveSound = false;
+
+            GameObject audioSourceFinder = GameObject.Find("AudioSource");
+            sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+            sourceHero.PlayOneShot(bloodWaveSound);
+        }
 
         if (Vector3.Distance(transform.position, points[0].transform.position) < 0.01f)
         {
