@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Ocean : MonoBehaviour
 {
-    public List<GameObject> oceanRandomList;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        oceanRandomList = new List<GameObject>();
+        
     }
 
-    public Ocean()
+    // Update is called once per frame
+    void Update()
     {
-
+        
     }
 }
-

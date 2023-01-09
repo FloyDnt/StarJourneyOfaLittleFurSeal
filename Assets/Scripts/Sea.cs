@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Sea : Ocean
+public class Sea : MonoBehaviour
 {
+    public List<GameObject> oceanRandomList;
+
     public Transform[] points;
 
     int i;
@@ -75,7 +77,7 @@ public class Sea : Ocean
                 waitTime -= Time.deltaTime;
             }
 
-            if (waterBlood == 2 && waterBloodStop == true)
+            if (waterBlood == 7 && waterBloodStop == true)
             {
                 changeWaterForBlood();
                 ChangeBloodUI();

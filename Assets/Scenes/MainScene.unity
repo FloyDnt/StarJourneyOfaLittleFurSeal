@@ -220,11 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oceanRandomList: []
-  points:
-  - {fileID: 1976372206}
-  - {fileID: 220293963}
-  bloodWaveSound: {fileID: 8300000, guid: cf084c31d416f6c45a6b6251a9f26290, type: 3}
-  startWaitTime: 10
+  gameObjectsGoodBlood: []
+  gameObjectsBadBlood: []
   gameObjectsGood:
   - {fileID: 7749849217013797386, guid: 4cb7ff3df5ac1e64581fc46dd3d11185, type: 3}
   - {fileID: 6639730651852827039, guid: 60137e27f5a3a5742ae3382bcc0c374f, type: 3}
@@ -241,6 +238,11 @@ MonoBehaviour:
   - {fileID: 912920336}
   - {fileID: 185478175}
   - {fileID: 1542776538}
+  points:
+  - {fileID: 1976372206}
+  - {fileID: 220293963}
+  bloodWaveSound: {fileID: 8300000, guid: cf084c31d416f6c45a6b6251a9f26290, type: 3}
+  startWaitTime: 10
 --- !u!1 &20224241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,17 +2789,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7085c6234faac4f96a91ca52de40e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oceanRandomList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  oceanRandomList: []
+  gameObjectsGoodBlood:
+  - {fileID: 7749849217013797386, guid: 4cb7ff3df5ac1e64581fc46dd3d11185, type: 3}
+  - {fileID: 6639730651852827039, guid: 60137e27f5a3a5742ae3382bcc0c374f, type: 3}
+  gameObjectsBadBlood:
+  - {fileID: 9194226815029290603, guid: 53f9e66a618c2b14db8239b8eb3bfea3, type: 3}
+  gameObjectsGood:
+  - {fileID: 4476242006490296246, guid: 3c762c9639274a6499e48a241a93ba64, type: 3}
+  - {fileID: 1896316588283571945, guid: 4d699b94224d7844a9989025857c7937, type: 3}
+  - {fileID: 7149769157904714659, guid: eb2366da0af2cd64d9471a867adf7bb1, type: 3}
+  - {fileID: 6234111985215933498, guid: ee432bdae1b22944dae0f6e1646659f5, type: 3}
+  gameObjectsBad:
+  - {fileID: 8621858614636739659, guid: 1021149b98763fc4192eeec4df908f49, type: 3}
+  - {fileID: 2601985110236760488, guid: 5def94b4c0466f6488bb4d7f305270c7, type: 3}
+  spawnPoints:
+  - {fileID: 96330436}
+  - {fileID: 2074858442}
+  - {fileID: 1519136660}
+  - {fileID: 1894344979}
+  - {fileID: 379391674}
+  - {fileID: 1820963307}
+  - {fileID: 272064284}
+  - {fileID: 912920336}
+  - {fileID: 185478175}
+  - {fileID: 1542776538}
 --- !u!1 &1003674131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,21 +2911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oceanRandomList: []
-  points:
-  - {fileID: 1976372206}
-  - {fileID: 220293963}
-  startWaitTime: 10
-  waveSound: {fileID: 8300000, guid: de43db2b4c4dfe947b87f9b79cce81fe, type: 3}
-  mainTrackSource: {fileID: 1589251912}
-  bloodTrackSource: {fileID: 1412763325}
-  WaterObj: {fileID: 1003674131}
-  BloodWaterObj: {fileID: 14897751}
-  oldHealthImage_1: {fileID: 50034857}
-  oldHealthImage_2: {fileID: 1920647562}
-  oldHealthImage_3: {fileID: 270567128}
-  oldCloseImage: {fileID: 1084326995}
-  newHealthImage: {fileID: 21300000, guid: e38a6a0f6ed9d01478077ff7aa5059a0, type: 3}
-  newCloseImage: {fileID: 21300000, guid: 923bc1e4797533e499a9a92eb5250799, type: 3}
+  gameObjectsGoodBlood: []
+  gameObjectsBadBlood: []
   gameObjectsGood:
   - {fileID: 4476242006490296246, guid: 3c762c9639274a6499e48a241a93ba64, type: 3}
   - {fileID: 1896316588283571945, guid: 4d699b94224d7844a9989025857c7937, type: 3}
@@ -2929,6 +2932,21 @@ MonoBehaviour:
   - {fileID: 912920336}
   - {fileID: 185478175}
   - {fileID: 1542776538}
+  points:
+  - {fileID: 1976372206}
+  - {fileID: 220293963}
+  startWaitTime: 10
+  waveSound: {fileID: 8300000, guid: de43db2b4c4dfe947b87f9b79cce81fe, type: 3}
+  mainTrackSource: {fileID: 1589251912}
+  bloodTrackSource: {fileID: 1412763325}
+  WaterObj: {fileID: 1003674131}
+  BloodWaterObj: {fileID: 14897751}
+  oldHealthImage_1: {fileID: 50034857}
+  oldHealthImage_2: {fileID: 1920647562}
+  oldHealthImage_3: {fileID: 270567128}
+  oldCloseImage: {fileID: 1084326995}
+  newHealthImage: {fileID: 21300000, guid: e38a6a0f6ed9d01478077ff7aa5059a0, type: 3}
+  newCloseImage: {fileID: 21300000, guid: 923bc1e4797533e499a9a92eb5250799, type: 3}
 --- !u!1 &1084326992
 GameObject:
   m_ObjectHideFlags: 0

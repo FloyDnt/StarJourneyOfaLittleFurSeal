@@ -43,8 +43,6 @@ public class FurSealHero : MonoBehaviour
     {
         StartCoroutine(AroundHero());
 
-        StartCoroutine(JumpHero());
-
         ScoreGen();
 
         HealthGen();
@@ -76,7 +74,7 @@ public class FurSealHero : MonoBehaviour
 
     void Update()
     {
-
+        JumpHero();
     }
 
     public bool vectorEquals(Vector3 v1, Vector3 v2)
@@ -110,32 +108,27 @@ public class FurSealHero : MonoBehaviour
         }
     }
 
-    private IEnumerator JumpHero()
+    private void JumpHero()
     {
-        while (true)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            transform.position = Vector3.MoveTowards(transform.position, gb.transform.position, speed);
+
+            int sound = Random.Range(0, 2);
+
+            if (sound == 0)
             {
-                transform.position = Vector3.MoveTowards(transform.position, gb.transform.position, speed);
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_jump_1);
 
-                int sound = Random.Range(0, 2);
-
-                if (sound == 0)
-                {
-                    GameObject audioSourceFinder = GameObject.Find("AudioSource");
-                    sourceHero = audioSourceFinder.GetComponent<AudioSource>();
-                    sourceHero.PlayOneShot(clip_jump_1);
-
-                }
-                else if (sound == 1)
-                {
-                    GameObject audioSourceFinder = GameObject.Find("AudioSource");
-                    sourceHero = audioSourceFinder.GetComponent<AudioSource>();
-                    sourceHero.PlayOneShot(clip_jump_2);
-                }
             }
-
-            yield return new WaitForSeconds(0.005f);
+            else if (sound == 1)
+            {
+                GameObject audioSourceFinder = GameObject.Find("AudioSource");
+                sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+                sourceHero.PlayOneShot(clip_jump_2);
+            }
         }
     }
 

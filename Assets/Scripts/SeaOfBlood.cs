@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeaOfBlood : Ocean
+public class SeaOfBlood : MonoBehaviour
 {
-    private Ocean oceanList;
+    public List<GameObject> oceanRandomList;
 
     public Transform[] points;
 
