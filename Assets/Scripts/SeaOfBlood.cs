@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeaOfBlood : MonoBehaviour
+public class SeaOfBlood : Ocean
 {
-    public List<GameObject> oceanRandomList;
 
     public Transform[] points;
 
@@ -12,11 +11,17 @@ public class SeaOfBlood : MonoBehaviour
     bool bloodStop = false;
     bool bloodStopTime = true;
     bool randomBlood = true;
+    bool organ = true;
+    int endGAME ;
 
     private float waterSpeed = 1f;
 
+    public GameObject UI_Final_Screen;
+
     //Sound
     [SerializeField] AudioClip bloodWaveSound;
+    [SerializeField] AudioClip bloodOrgan;
+    [SerializeField] AudioClip endblood;
     AudioSource sourceHero;
     bool checkBloodWaveSound = true;
 
@@ -38,6 +43,13 @@ public class SeaOfBlood : MonoBehaviour
         spawnPoints = new List<Transform>(spawnPoints);
     }
 
+    private void SoundOfOrgan()
+    {
+        GameObject audioSourceFinder = GameObject.Find("AudioSource");
+        sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+        sourceHero.PlayOneShot(bloodOrgan);
+    }
+
     private void FixedUpdate()
     {
         if (bloodStop == false && waitTime >= 0)
@@ -57,6 +69,12 @@ public class SeaOfBlood : MonoBehaviour
 
             Water();
 
+            if (organ == true)
+            {
+                organ = false;
+                SoundOfOrgan();
+            }
+
             if (Vector3.Distance(transform.position, points[i].transform.position) < 0.01f)
             {
                 if (waitTime <= 0)
@@ -75,6 +93,10 @@ public class SeaOfBlood : MonoBehaviour
                 else
                 {
                     waitTime -= Time.deltaTime;
+                    if (endGAME == 3 && (waitTime <= 0))
+                    {
+                        FinishGame();
+                    }
                 }
             }
         }
@@ -96,6 +118,8 @@ public class SeaOfBlood : MonoBehaviour
 
         if (Vector3.Distance(transform.position, points[0].transform.position) < 0.01f)
         {
+            endGAME++;
+
             if (i > 0)
             {
                 i = 0;
@@ -123,6 +147,7 @@ public class SeaOfBlood : MonoBehaviour
             }
         }
 
+        oceanRandomList.Clear();
 
         for (int i = 0; i <= 9; i++)
         {
@@ -150,5 +175,15 @@ public class SeaOfBlood : MonoBehaviour
                 oceanRandomList.Add(randomObject);
             }
         }
+    }
+
+    private void FinishGame()
+    {
+        GameObject audioSourceFinder = GameObject.Find("AudioSource");
+        sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+        sourceHero.PlayOneShot(endblood);
+
+        UI_Final_Screen.SetActive(true);
+        Time.timeScale = 0;
     }
 }

@@ -22,6 +22,7 @@ public class FurSealHero : MonoBehaviour
     [SerializeField] AudioClip clip_jump_2;
     [SerializeField] AudioClip clip_sad_1;
     [SerializeField] AudioClip clip_sad_2;
+    [SerializeField] AudioClip soundOfDeathBlood;
 
     int health = 0;
 
@@ -217,13 +218,22 @@ public class FurSealHero : MonoBehaviour
             if (b_waterCheck == true)
             {
                 UI_Death_Screen.SetActive(true);
+
             }
             else if (b_bloodWaterCheck == true)
             {
                 UI_Death_Blood_Screen.SetActive(true);
+                SoundOfDeathBlood();
             }
 
             Time.timeScale = 0;
         }
+    }
+
+    private void SoundOfDeathBlood()
+    {
+        GameObject audioSourceFinder = GameObject.Find("AudioSource");
+        sourceHero = audioSourceFinder.GetComponent<AudioSource>();
+        sourceHero.PlayOneShot(soundOfDeathBlood);
     }
 }

@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Sea : MonoBehaviour
+public class Sea : Ocean
 {
-    public List<GameObject> oceanRandomList;
 
     public Transform[] points;
 
@@ -77,7 +76,7 @@ public class Sea : MonoBehaviour
                 waitTime -= Time.deltaTime;
             }
 
-            if (waterBlood == 7 && waterBloodStop == true)
+            if (waterBlood == 2 && waterBloodStop == true)
             {
                 changeWaterForBlood();
                 ChangeBloodUI();
@@ -152,6 +151,8 @@ public class Sea : MonoBehaviour
                 Destroy(oceanRandomList[i].gameObject);
             }
         }
+
+        oceanRandomList.Clear();
 
 
         for (int i = 0; i <= 9; i++)
