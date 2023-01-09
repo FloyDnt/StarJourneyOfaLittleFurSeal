@@ -7,6 +7,9 @@ using TMPro;
 
 public class FurSealHero : MonoBehaviour
 {
+
+    Rigidbody rb;
+
     public Image imageHealth_01;
     public Image imageHealth_02;
     public Image imageHealth_03;
@@ -15,6 +18,10 @@ public class FurSealHero : MonoBehaviour
     public GameObject UI_Death_Blood_Screen;
     public GameObject WaterCheck;
     public GameObject BloodWaterCheck;
+
+    //Particle
+    public ParticleSystem pClearWater = null;
+    public ParticleSystem pBloodWater = null;
 
     //Sound
     AudioSource sourceHero;
@@ -25,6 +32,7 @@ public class FurSealHero : MonoBehaviour
     [SerializeField] AudioClip soundOfDeathBlood;
 
     int health = 0;
+    int score = 0;
 
     Color healthColor;
 
@@ -36,12 +44,15 @@ public class FurSealHero : MonoBehaviour
     public Vector3 zeroVec = new Vector3(0, 360, 0);
     public float speed = 1f;
     public float smooth;
+    public float jumpForce = 7f;
 
     [Header("Set Dynamically")]
     public TextMeshProUGUI scoreGT;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         StartCoroutine(AroundHero());
 
         ScoreGen();
@@ -76,6 +87,7 @@ public class FurSealHero : MonoBehaviour
     void Update()
     {
         JumpHero();
+
     }
 
     public bool vectorEquals(Vector3 v1, Vector3 v2)
@@ -138,14 +150,12 @@ public class FurSealHero : MonoBehaviour
         GameObject collidedWith = collision.gameObject;
         if (collidedWith.tag == "Cube")
         {
-            int score = int.Parse(scoreGT.text);
-            score += 100;
-            scoreGT.text = score.ToString();
+            PlayParticle();
 
-            if (score > HighScoreResult.scoreResult)
-            {
-                HighScoreResult.scoreResult = score;
-            }
+            score += 100;
+            scoreGT.text = "Score: " + score;
+
+
         }
 
         if (health == 0 && collidedWith.tag == "DangerCube")
@@ -236,4 +246,24 @@ public class FurSealHero : MonoBehaviour
         sourceHero = audioSourceFinder.GetComponent<AudioSource>();
         sourceHero.PlayOneShot(soundOfDeathBlood);
     }
+
+    public void PlayParticle()
+    {
+        bool b_waterCheck = WaterCheck.activeInHierarchy;
+
+        if (b_waterCheck == true )
+        {
+            pClearWater.Play();
+        }
+        else if (b_waterCheck == false)
+        {
+            pBloodWater.Play();
+        }
+    }
+
+    public void DamageParticle()
+    {
+
+    }
+
 }

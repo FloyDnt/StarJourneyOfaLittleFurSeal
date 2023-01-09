@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af03130691b77824ab699db371e3977e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pClearWater: {fileID: 4477526028944244162, guid: 726404db69026a1469aa9133e456cb23, type: 3}
   clip_1: {fileID: 8300000, guid: a5f00d79332783749aef2c50051805e1, type: 3}
   clip_2: {fileID: 8300000, guid: d6579860caa647042ab72d5180701b9b, type: 3}
 --- !u!65 &4390236625182286283

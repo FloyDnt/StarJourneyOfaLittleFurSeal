@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PickedUpObject : MonoBehaviour
 {
-    [SerializeField] GameObject pClearWater;
 
     [SerializeField] AudioClip clip_1;
     [SerializeField] AudioClip clip_2;
@@ -34,9 +33,6 @@ public class PickedUpObject : MonoBehaviour
             }
 
             Destroy(gameObject);
-
-            GameObject explosion = Instantiate(pClearWater);
-            Destroy(explosion, 0.75f);
 
         }
     }
