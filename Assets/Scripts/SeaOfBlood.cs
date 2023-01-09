@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SeaOfBlood : Ocean
 {
+    FurSealHero Hero = new FurSealHero();
+
 
     public Transform[] points;
 
@@ -18,6 +20,7 @@ public class SeaOfBlood : Ocean
 
     public GameObject UI_Final_Screen;
     public GameObject UI_Score_Panel;
+    public GameObject HeroFur;
 
     //Sound
     [SerializeField] AudioClip bloodWaveSound;
@@ -187,6 +190,9 @@ public class SeaOfBlood : Ocean
 
         UI_Score_Panel.SetActive(false);
         UI_Final_Screen.SetActive(true);
+
+        Hero.CheckFinalState();
+
         Time.timeScale = 0;
     }
 }

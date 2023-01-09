@@ -34,8 +34,8 @@ public class FurSealHero : MonoBehaviour
     [SerializeField] AudioClip soundOfDeathBlood;
 
     int health = 0;
-    int score = 0;
-    int scoreOfBank = 0;
+    public static int score;
+    public static int scoreOfBank;
 
     Color healthColor;
 
@@ -97,14 +97,7 @@ public class FurSealHero : MonoBehaviour
     {
         JumpHero();
 
-        if (b_final_screen == true)
-        {
-            GameObject finalBS = GameObject.Find("ScoreBlood");
-            finalScore = finalBS.GetComponent<TextMeshProUGUI>();
-            finalScore.text = "CURRENT SCORE: ";
-
-            finalScore.text = "CURRENT SCORE: " + scoreOfBank;
-        }
+        scoreOfBank = score;
     }
 
     public bool vectorEquals(Vector3 v1, Vector3 v2)
@@ -170,7 +163,6 @@ public class FurSealHero : MonoBehaviour
             PlayParticle();
 
             score += 100;
-            scoreOfBank = score;
             scoreGT.text = "Score: " + score;
 
         }
@@ -284,6 +276,15 @@ public class FurSealHero : MonoBehaviour
     public void DamageParticle()
     {
 
+    }
+
+    public void CheckFinalState()
+    {
+        GameObject finalBS = GameObject.Find("ScoreBlood");
+        finalScore = finalBS.GetComponent<TextMeshProUGUI>();
+        finalScore.text = "CURRENT SCORE: ";
+
+        finalScore.text = "CURRENT SCORE: " + scoreOfBank;
     }
 
 }
