@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeaOfBlood : MonoBehaviour
+public class SeaOfBlood : Ocean
 {
     public Transform[] points;
 
     int i;
     bool bloodStop = false;
     bool bloodStopTime = true;
+    bool randomBlood = true;
 
     private float waterSpeed = 1f;
 
@@ -20,9 +21,19 @@ public class SeaOfBlood : MonoBehaviour
     private float waitTime;
     public float startWaitTime;
 
+    public List<GameObject> gameObjectsGood;
+    public List<GameObject> gameObjectsBad;
+
+
+    public List<Transform> spawnPoints;
+
+    GameObject randomObject;
+
     private void Start()
     {
         waitTime = startWaitTime;
+
+        spawnPoints = new List<Transform>(spawnPoints);
     }
 
     private void FixedUpdate()
@@ -49,6 +60,7 @@ public class SeaOfBlood : MonoBehaviour
                 if (waitTime <= 0)
                 {
                     waitTime = startWaitTime;
+                    randomBlood = true;
                     if (i > 0)
                     {
                         i = 0;
@@ -88,7 +100,52 @@ public class SeaOfBlood : MonoBehaviour
             }
             else
             {
+                if (randomBlood == true)
+                {
+                    SpawnBlood();
+                    randomBlood = false;
+                }
                 i = 1;
+            }
+        }
+    }
+
+    public void SpawnBlood()
+    {
+
+        for (int i = 0; i != oceanRandomList.Count; i++)
+        {
+            if (oceanRandomList != null)
+            {
+                Destroy(oceanRandomList[i].gameObject);
+            }
+        }
+
+
+        for (int i = 0; i <= 9; i++)
+        {
+            var randomGoodOrBadObject = Random.Range(0, 3);
+
+            if (randomGoodOrBadObject == 0)
+            {
+                var objectIndex = Random.Range(0, gameObjectsGood.Count);
+                var spawn = Random.Range(0, spawnPoints.Count);
+
+                randomObject = Instantiate(gameObjectsGood[objectIndex], spawnPoints[spawn].transform.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+
+                oceanRandomList.Add(randomObject);
+
+            }
+            else if (randomGoodOrBadObject == 2 || randomGoodOrBadObject == 1)
+            {
+
+                var objectIndex = Random.Range(0, gameObjectsBad.Count);
+                var spawn = Random.Range(0, spawnPoints.Count);
+
+
+                randomObject = Instantiate(gameObjectsBad[objectIndex], spawnPoints[spawn].transform.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+
+                oceanRandomList.Add(randomObject);
             }
         }
     }
