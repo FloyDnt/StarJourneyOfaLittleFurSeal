@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 14897754}
   - component: {fileID: 14897753}
   - component: {fileID: 14897756}
-  - component: {fileID: 14897757}
   m_Layer: 0
   m_Name: BloodWater
   m_TagString: Untagged
@@ -242,19 +241,6 @@ MonoBehaviour:
   - {fileID: 912920336}
   - {fileID: 185478175}
   - {fileID: 1542776538}
---- !u!114 &14897757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14897751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7085c6234faac4f96a91ca52de40e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oceanRandomList: []
 --- !u!1 &20224241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,7 +1800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &743507064
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2703,6 +2689,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2788,6 +2775,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbcea0236e9b1f47815b3654211c82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7085c6234faac4f96a91ca52de40e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oceanRandomList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1003674131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,7 +2810,6 @@ GameObject:
   - component: {fileID: 1003674134}
   - component: {fileID: 1003674133}
   - component: {fileID: 1003674136}
-  - component: {fileID: 1003674137}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -2920,19 +2929,6 @@ MonoBehaviour:
   - {fileID: 912920336}
   - {fileID: 185478175}
   - {fileID: 1542776538}
---- !u!114 &1003674137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003674131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7085c6234faac4f96a91ca52de40e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oceanRandomList: []
 --- !u!1 &1084326992
 GameObject:
   m_ObjectHideFlags: 0
@@ -4438,7 +4434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1589251913
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5631,7 +5627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
       propertyPath: m_LocalPosition.z
