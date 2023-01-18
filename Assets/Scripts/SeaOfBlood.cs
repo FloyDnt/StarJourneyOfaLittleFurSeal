@@ -22,6 +22,8 @@ public class SeaOfBlood : Ocean
     public GameObject UI_Score_Panel;
     public GameObject HeroFur;
 
+
+
     //Sound
     [SerializeField] AudioClip bloodWaveSound;
     [SerializeField] AudioClip bloodOrgan;
@@ -192,6 +194,8 @@ public class SeaOfBlood : Ocean
         UI_Final_Screen.SetActive(true);
 
         Hero.CheckFinalState();
+
+        Destroy(HeroFur);
 
         Time.timeScale = 0;
     }

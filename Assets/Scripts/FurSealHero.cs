@@ -22,10 +22,10 @@ public class FurSealHero : MonoBehaviour
     public GameObject UI_Final_Screen;
 
     //Particle
-    public ParticleSystem pClearWater = null;
-    public ParticleSystem pBloodWater = null;
-    public ParticleSystem pClearDamage = null;
-    public ParticleSystem pBloodDamage = null;
+    public ParticleSystem pClearWater;
+    public ParticleSystem pBloodWater;
+    public ParticleSystem pClearDamage;
+    public ParticleSystem pBloodDamage;
 
     //Sound
     AudioSource sourceHero;
@@ -60,6 +60,9 @@ public class FurSealHero : MonoBehaviour
 
     void Start()
     {
+        score = 0;
+        scoreOfBank = 0;
+
         rb = GetComponent<Rigidbody>();
 
         StartCoroutine(AroundHero());
@@ -160,6 +163,12 @@ public class FurSealHero : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject collidedWith = collision.gameObject;
+
+        if (collidedWith.tag == "DangerCube")
+        {
+            DamageParticle();
+        }
+
         if (collidedWith.tag == "Cube")
         {
             PlayParticle();
@@ -167,11 +176,6 @@ public class FurSealHero : MonoBehaviour
             score += 100;
             scoreGT.text = "Score: " + score;
 
-        }
-        
-        if (collidedWith.tag == "DangerCube")
-        {
-            DamageParticle();
         }
 
         if (health == 0 && collidedWith.tag == "DangerCube")
