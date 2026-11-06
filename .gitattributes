@@ -1,0 +1,27 @@
+# Text is stored and checked out with LF on every OS: Unity writes LF, so git and the editor agree.
+* text=auto eol=lf
+
+# Windows scripts need CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary assets: no line-ending conversion and no textual diff.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.psd binary
+*.tga binary
+*.tif binary
+*.exr binary
+*.mp3 binary
+*.ogg binary
+*.wav binary
+*.ttf binary
+*.TTF binary
+*.otf binary
+*.fbx binary
+*.pdf binary
+*.dll binary
+*.zip binary

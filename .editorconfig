@@ -1,0 +1,66 @@
+# Formatting and C# conventions shared by every editor and IDE (https://editorconfig.org).
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{json,asmdef,asmref,yml,yaml}]
+indent_size = 2
+
+# Unity serializes these files itself; trimming whitespace would turn empty strings into nulls.
+[*.{unity,prefab,asset,meta,mat,anim,controller,overrideController,physicMaterial,physicsMaterial,lighting,shadergraph,shadersubgraph,terrainlayer,preset,mask,mixer}]
+indent_size = unset
+insert_final_newline = unset
+trim_trailing_whitespace = false
+
+[*.cs]
+max_line_length = 120
+
+# Layout: Allman braces, braces on every block.
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_prefer_braces = true:warning
+dotnet_sort_system_directives_first = true
+
+# Unity compiles C# 9, and file-scoped namespaces need C# 10.
+csharp_style_namespace_declarations = block_scoped:warning
+
+# `var` only where the type is obvious from the right-hand side.
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = false:suggestion
+
+csharp_style_expression_bodied_properties = when_on_single_line:suggestion
+csharp_style_expression_bodied_accessors = when_on_single_line:suggestion
+dotnet_style_require_accessibility_modifiers = always:warning
+dotnet_style_readonly_field = true:suggestion
+
+# Naming: PascalCase for types, members and constants; _camelCase for private fields.
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+dotnet_naming_style.underscore_camel_case.capitalization = camel_case
+dotnet_naming_style.underscore_camel_case.required_prefix = _
+
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.required_modifiers = const
+dotnet_naming_rule.constants_are_pascal_case.symbols = constants
+dotnet_naming_rule.constants_are_pascal_case.style = pascal_case
+dotnet_naming_rule.constants_are_pascal_case.severity = warning
+
+dotnet_naming_symbols.static_readonly_fields.applicable_kinds = field
+dotnet_naming_symbols.static_readonly_fields.required_modifiers = static, readonly
+dotnet_naming_rule.static_readonly_fields_are_pascal_case.symbols = static_readonly_fields
+dotnet_naming_rule.static_readonly_fields_are_pascal_case.style = pascal_case
+dotnet_naming_rule.static_readonly_fields_are_pascal_case.severity = warning
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_rule.private_fields_are_underscore_camel_case.symbols = private_fields
+dotnet_naming_rule.private_fields_are_underscore_camel_case.style = underscore_camel_case
+dotnet_naming_rule.private_fields_are_underscore_camel_case.severity = warning
