@@ -25,6 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194226815029290603}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,7 +33,6 @@ Transform:
   m_Children:
   - {fileID: 7481513810609642623}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-892146885527035531
 MonoBehaviour:
@@ -54,9 +54,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194226815029290603}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0.7, y: 0.35, z: 0}
 --- !u!1001 &6942602640726195092
@@ -64,6 +72,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 6449708320574439316}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e17b8174626bb148ad78e681e587a74, type: 3}
@@ -123,7 +132,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -264430861247414160, guid: 8e17b8174626bb148ad78e681e587a74, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 85b373ab52439b047bd03f488c275043, type: 2}
     - target: {fileID: 919132149155446097, guid: 8e17b8174626bb148ad78e681e587a74, type: 3}
@@ -131,10 +140,13 @@ PrefabInstance:
       value: mine_uv
       objectReference: {fileID: 0}
     - target: {fileID: 1764181719464428247, guid: 8e17b8174626bb148ad78e681e587a74, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9e08e8da78cf68a42baec8e8254418f6, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e17b8174626bb148ad78e681e587a74, type: 3}
 --- !u!4 &7481513810609642623 stripped
 Transform:
