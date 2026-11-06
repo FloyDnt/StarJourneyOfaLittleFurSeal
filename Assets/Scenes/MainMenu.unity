@@ -655,7 +655,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 362686356}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -1677,8 +1677,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 362686356}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: Exit
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

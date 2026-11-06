@@ -219,76 +219,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 14897751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a4f5ec713adf346832944d68df0616, type: 3}
+  m_Script: {fileID: 11500000, guid: 515a879f906fce44a90c420bc84bad71, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1976372206}
-  - {fileID: 220293963}
-  UI_Final_Screen: {fileID: 1144871323}
-  UI_Score_Panel: {fileID: 944538436}
-  HeroFur: {fileID: 1286179154}
-  bloodWaveSound: {fileID: 8300000, guid: cf084c31d416f6c45a6b6251a9f26290, type: 3}
-  bloodOrgan: {fileID: 8300000, guid: 9589b0051ff45624f9e7de4b945371be, type: 3}
-  endblood: {fileID: 8300000, guid: 36e0a1f2d10219948894f4e968e07a4b, type: 3}
-  startWaitTime: 10
-  gameObjectsGood:
-  - {fileID: 7749849217013797386, guid: 4cb7ff3df5ac1e64581fc46dd3d11185, type: 3}
-  - {fileID: 6639730651852827039, guid: 60137e27f5a3a5742ae3382bcc0c374f, type: 3}
-  gameObjectsBad:
-  - {fileID: 9194226815029290603, guid: 53f9e66a618c2b14db8239b8eb3bfea3, type: 3}
-  spawnPoints:
-  - {fileID: 2106131678}
-  - {fileID: 96330436}
-  - {fileID: 2074858442}
-  - {fileID: 1519136660}
-  - {fileID: 1894344979}
-  - {fileID: 379391674}
-  - {fileID: 1820963307}
-  - {fileID: 272064284}
-  - {fileID: 912920336}
-  - {fileID: 185478175}
-  - {fileID: 1542776538}
-  - {fileID: 628963634}
-  - {fileID: 741048888}
-  - {fileID: 805126942}
-  - {fileID: 1752494187}
-  - {fileID: 785707363}
-  - {fileID: 1515925957}
-  - {fileID: 906901514}
-  - {fileID: 1576235681}
-  - {fileID: 515721422}
-  - {fileID: 260859579}
-  - {fileID: 757651393}
-  - {fileID: 690836511}
-  - {fileID: 2006767514}
-  - {fileID: 215341678}
-  - {fileID: 2000582637}
-  - {fileID: 620708359}
-  - {fileID: 1514421969}
-  - {fileID: 793418582}
-  - {fileID: 319292231}
-  - {fileID: 1557414461}
-  - {fileID: 1659036472}
-  - {fileID: 1323189255}
-  - {fileID: 463110442}
-  - {fileID: 52930019}
-  - {fileID: 409378517}
-  - {fileID: 426352412}
-  - {fileID: 1537765807}
-  - {fileID: 2118955721}
-  - {fileID: 1315564799}
-  - {fileID: 1958135479}
-  - {fileID: 1101827507}
-  - {fileID: 281283130}
-  - {fileID: 1932077456}
-  - {fileID: 924636352}
-  - {fileID: 1310045025}
-  - {fileID: 1703765120}
-  - {fileID: 1947715849}
-  - {fileID: 1497634452}
-  - {fileID: 636606535}
-  - {fileID: 2139996382}
+  m_EditorClassIdentifier: StarJourney::StarJourney.Gameplay.Tide
+  _lowHeight: -8
+  _highHeight: -6
+  _speed: 1
+  _restDuration: 10
+  _startDelay: 10
+  _waveCount: 3
+  _completeAfterLastRest: 1
+  _sfx: {fileID: 508949422125653753}
+  _riseSounds: []
+  _firstRiseSounds:
+  - {fileID: 8300000, guid: cf084c31d416f6c45a6b6251a9f26290, type: 3}
+  - {fileID: 8300000, guid: 9589b0051ff45624f9e7de4b945371be, type: 3}
 --- !u!1 &20224241
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,21 +357,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34901492}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e19ca8dfadaaf7409c46ea85a82e890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectsGood:
-  - {fileID: 4476242006490296246, guid: 3c762c9639274a6499e48a241a93ba64, type: 3}
-  - {fileID: 1896316588283571945, guid: 4d699b94224d7844a9989025857c7937, type: 3}
-  - {fileID: 7149769157904714659, guid: eb2366da0af2cd64d9471a867adf7bb1, type: 3}
-  - {fileID: 6234111985215933498, guid: ee432bdae1b22944dae0f6e1646659f5, type: 3}
-  gameObjectsBad:
-  - {fileID: 2601985110236760488, guid: 5def94b4c0466f6488bb4d7f305270c7, type: 3}
-  - {fileID: 8621858614636739659, guid: 1021149b98763fc4192eeec4df908f49, type: 3}
-  randomObjectList: []
-  spawnPoints:
+  _clearTide: {fileID: 1003674136}
+  _clearSpawns:
+    _pickups:
+    - {fileID: 4476242006490296246, guid: 3c762c9639274a6499e48a241a93ba64, type: 3}
+    - {fileID: 1896316588283571945, guid: 4d699b94224d7844a9989025857c7937, type: 3}
+    - {fileID: 7149769157904714659, guid: eb2366da0af2cd64d9471a867adf7bb1, type: 3}
+    - {fileID: 6234111985215933498, guid: ee432bdae1b22944dae0f6e1646659f5, type: 3}
+    _hazards:
+    - {fileID: 8621858614636739659, guid: 1021149b98763fc4192eeec4df908f49, type: 3}
+    - {fileID: 2601985110236760488, guid: 5def94b4c0466f6488bb4d7f305270c7, type: 3}
+    _pickupThirds: 2
+  _bloodTide: {fileID: 14897756}
+  _bloodSpawns:
+    _pickups:
+    - {fileID: 7749849217013797386, guid: 4cb7ff3df5ac1e64581fc46dd3d11185, type: 3}
+    - {fileID: 6639730651852827039, guid: 60137e27f5a3a5742ae3382bcc0c374f, type: 3}
+    _hazards:
+    - {fileID: 9194226815029290603, guid: 53f9e66a618c2b14db8239b8eb3bfea3, type: 3}
+    _pickupThirds: 1
+  _spawnPoints:
   - {fileID: 2106131678}
   - {fileID: 96330436}
   - {fileID: 2074858442}
@@ -478,6 +433,7 @@ MonoBehaviour:
   - {fileID: 1497634452}
   - {fileID: 636606535}
   - {fileID: 2139996382}
+  _batchSize: 10
 --- !u!1 &50034855
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,11 +845,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185478174}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &192098053 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5188053906451751480, guid: 8581ba9132703494a9da25078459be8f, type: 3}
-  m_PrefabInstance: {fileID: 5188053906337385789}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &192098054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5188053906451751483, guid: 8581ba9132703494a9da25078459be8f, type: 3}
@@ -1262,11 +1213,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216737331}
   m_CullTransparentMesh: 1
---- !u!4 &220293963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-  m_PrefabInstance: {fileID: 7814554413285660762}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &260859578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1408,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -7768,8 +7714,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: Menu
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8726,7 +8672,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -8928,8 +8874,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: Menu
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10115,7 +10061,6 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10209,18 +10154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbcea0236e9b1f47815b3654211c82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7085c6234faac4f96a91ca52de40e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1003674131
 GameObject:
   m_ObjectHideFlags: 0
@@ -10233,7 +10166,6 @@ GameObject:
   - component: {fileID: 1003674134}
   - component: {fileID: 1003674133}
   - component: {fileID: 1003674136}
-  - component: {fileID: 1003674137}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -10325,93 +10257,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515a879f906fce44a90c420bc84bad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1976372206}
-  - {fileID: 220293963}
-  startWaitTime: 10
-  waveSound: {fileID: 8300000, guid: de43db2b4c4dfe947b87f9b79cce81fe, type: 3}
-  mainTrackSource: {fileID: 1589251912}
-  bloodTrackSource: {fileID: 1412763325}
-  WaterObj: {fileID: 1003674131}
-  BloodWaterObj: {fileID: 14897751}
-  oldHealthImage_1: {fileID: 50034857}
-  oldHealthImage_2: {fileID: 1920647562}
-  oldHealthImage_3: {fileID: 270567128}
-  oldCloseImage: {fileID: 1084326995}
-  newHealthImage: {fileID: 21300000, guid: e38a6a0f6ed9d01478077ff7aa5059a0, type: 3}
-  newCloseImage: {fileID: 21300000, guid: 923bc1e4797533e499a9a92eb5250799, type: 3}
-  gameObjectsGood:
-  - {fileID: 4476242006490296246, guid: 3c762c9639274a6499e48a241a93ba64, type: 3}
-  - {fileID: 1896316588283571945, guid: 4d699b94224d7844a9989025857c7937, type: 3}
-  - {fileID: 7149769157904714659, guid: eb2366da0af2cd64d9471a867adf7bb1, type: 3}
-  - {fileID: 6234111985215933498, guid: ee432bdae1b22944dae0f6e1646659f5, type: 3}
-  gameObjectsBad:
-  - {fileID: 8621858614636739659, guid: 1021149b98763fc4192eeec4df908f49, type: 3}
-  - {fileID: 2601985110236760488, guid: 5def94b4c0466f6488bb4d7f305270c7, type: 3}
-  spawnPoints:
-  - {fileID: 96330436}
-  - {fileID: 2074858442}
-  - {fileID: 1519136660}
-  - {fileID: 1894344979}
-  - {fileID: 379391674}
-  - {fileID: 1820963307}
-  - {fileID: 272064284}
-  - {fileID: 912920336}
-  - {fileID: 185478175}
-  - {fileID: 1542776538}
-  - {fileID: 628963634}
-  - {fileID: 741048888}
-  - {fileID: 805126942}
-  - {fileID: 1752494187}
-  - {fileID: 785707363}
-  - {fileID: 1515925957}
-  - {fileID: 906901514}
-  - {fileID: 1576235681}
-  - {fileID: 515721422}
-  - {fileID: 260859579}
-  - {fileID: 757651393}
-  - {fileID: 690836511}
-  - {fileID: 2006767514}
-  - {fileID: 215341678}
-  - {fileID: 2000582637}
-  - {fileID: 620708359}
-  - {fileID: 1514421969}
-  - {fileID: 793418582}
-  - {fileID: 319292231}
-  - {fileID: 1557414461}
-  - {fileID: 1659036472}
-  - {fileID: 1323189255}
-  - {fileID: 463110442}
-  - {fileID: 52930019}
-  - {fileID: 409378517}
-  - {fileID: 426352412}
-  - {fileID: 1537765807}
-  - {fileID: 2118955721}
-  - {fileID: 1315564799}
-  - {fileID: 1958135479}
-  - {fileID: 1101827507}
-  - {fileID: 281283130}
-  - {fileID: 1932077456}
-  - {fileID: 2106131678}
-  - {fileID: 924636352}
-  - {fileID: 1310045025}
-  - {fileID: 1703765120}
-  - {fileID: 1947715849}
-  - {fileID: 1497634452}
-  - {fileID: 636606535}
-  - {fileID: 2139996382}
---- !u!114 &1003674137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003674131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7085c6234faac4f96a91ca52de40e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _lowHeight: -8
+  _highHeight: -6
+  _speed: 1
+  _restDuration: 10
+  _startDelay: 0
+  _waveCount: 7
+  _completeAfterLastRest: 0
+  _sfx: {fileID: 508949422125653753}
+  _riseSounds:
+  - {fileID: 8300000, guid: de43db2b4c4dfe947b87f9b79cce81fe, type: 3}
+  _firstRiseSounds: []
 --- !u!1 &1084326992
 GameObject:
   m_ObjectHideFlags: 0
@@ -10495,8 +10351,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: Menu
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11176,10 +11032,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1286179158}
-  - component: {fileID: 1286179157}
   - component: {fileID: 1286179159}
   - component: {fileID: 1286179160}
-  - component: {fileID: 1286179161}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -11187,14 +11041,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!33 &1286179157
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286179154}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1286179158
 Transform:
   m_ObjectHideFlags: 0
@@ -11255,129 +11101,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7705ebbc1f0ae4d8e27ebb122ad45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageHealth_01: {fileID: 0}
-  imageHealth_02: {fileID: 0}
-  imageHealth_03: {fileID: 0}
-  UI_Death_Screen: {fileID: 216462832}
-  UI_Death_Blood_Screen: {fileID: 1663013182}
-  WaterCheck: {fileID: 1003674131}
-  BloodWaterCheck: {fileID: 14897751}
-  UI_Final_Screen: {fileID: 1144871323}
-  pClearWater: {fileID: 2122240327}
-  pBloodWater: {fileID: 1983201220}
-  pClearDamage: {fileID: 395166978}
-  pBloodDamage: {fileID: 2014604303}
-  clip_jump_1: {fileID: 8300000, guid: 96fb3f0b22c0c4745b758f6e8b8442af, type: 3}
-  clip_jump_2: {fileID: 8300000, guid: 4e5df276666e62745bcb3eaeb3923f19, type: 3}
-  clip_sad_1: {fileID: 8300000, guid: fa9c2b0039fd4464d8a74ecbec4d3965, type: 3}
-  clip_sad_2: {fileID: 8300000, guid: e5c1c1719495b5f43adeae749b6f5a70, type: 3}
-  soundOfDeathBlood: {fileID: 8300000, guid: 9a356a2e207b8764baa99fbc7b933e97, type: 3}
-  gb: {fileID: 192098053}
-  toRot: {x: 0, y: 2, z: 0}
-  toRotHelper: {x: 0, y: 0, z: 0}
-  zeroVec: {x: 0, y: 360, z: 0}
-  speed: 2
-  smooth: 0
-  jumpForce: 50
-  scoreGT: {fileID: 0}
-  finalScore: {fileID: 0}
---- !u!82 &1286179161
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286179154}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  _turnStepDegrees: 2
+  _hopTarget: {fileID: 192098054}
+  _hopDistance: 2
+  _sfx: {fileID: 508949422125653753}
+  _hopSounds:
+  - {fileID: 8300000, guid: 96fb3f0b22c0c4745b758f6e8b8442af, type: 3}
+  - {fileID: 8300000, guid: 4e5df276666e62745bcb3eaeb3923f19, type: 3}
+  _pickupSounds:
+  - {fileID: 8300000, guid: a5f00d79332783749aef2c50051805e1, type: 3}
+  - {fileID: 8300000, guid: d6579860caa647042ab72d5180701b9b, type: 3}
+  _hitSounds:
+  - {fileID: 8300000, guid: fa9c2b0039fd4464d8a74ecbec4d3965, type: 3}
+  - {fileID: 8300000, guid: e5c1c1719495b5f43adeae749b6f5a70, type: 3}
+  _pickupSplash: {fileID: 2122240327}
+  _pickupSplashBlood: {fileID: 1983201220}
+  _hitSplash: {fileID: 395166978}
+  _hitSplashBlood: {fileID: 2014604303}
 --- !u!1 &1290220603
 GameObject:
   m_ObjectHideFlags: 0
@@ -12990,8 +12730,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
-        m_MethodName: Menu
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13672,6 +13412,58 @@ RectTransform:
   m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1742317086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742317088}
+  - component: {fileID: 1742317087}
+  m_Layer: 0
+  m_Name: GameFlow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1742317087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742317086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f563224b5bea954da28a9c8005e4e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: StarJourney::StarJourney.Gameplay.GameFlow
+  _clearTide: {fileID: 1003674136}
+  _bloodTide: {fileID: 14897756}
+  _seal: {fileID: 1286179160}
+  _mainMusic: {fileID: 1589251912}
+  _bloodMusic: {fileID: 1412763325}
+  _sfx: {fileID: 508949422125653753}
+  _finishSound: {fileID: 8300000, guid: 36e0a1f2d10219948894f4e968e07a4b, type: 3}
+  _bloodDeathSound: {fileID: 8300000, guid: 9a356a2e207b8764baa99fbc7b933e97, type: 3}
+--- !u!4 &1742317088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742317086}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750627767
 GameObject:
   m_ObjectHideFlags: 0
@@ -13755,7 +13547,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194229}
-        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_TargetAssemblyTypeName: StarJourney.UI.MenuButtons, StarJourney
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -14040,6 +13832,8 @@ GameObject:
   - component: {fileID: 1821496634}
   - component: {fileID: 1821496633}
   - component: {fileID: 1821496632}
+  - component: {fileID: 1821496636}
+  - component: {fileID: 1821496637}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -14135,6 +13929,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1821496636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821496631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d2d53aa7242dd4a9aefe706a55f7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: StarJourney::StarJourney.UI.Hud
+  _seal: {fileID: 1286179160}
+  _gameFlow: {fileID: 1742317087}
+  _healthIcons:
+  - {fileID: 270567128}
+  - {fileID: 1920647562}
+  - {fileID: 50034857}
+  _scoreText: {fileID: 1151418495}
+  _scorePanel: {fileID: 944538436}
+  _closeButtonImage: {fileID: 1084326995}
+  _bloodHealthSprite: {fileID: 21300000, guid: e38a6a0f6ed9d01478077ff7aa5059a0, type: 3}
+  _bloodCloseSprite: {fileID: 21300000, guid: 923bc1e4797533e499a9a92eb5250799, type: 3}
+--- !u!114 &1821496637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821496631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1841d9974e261ad45ba37d7800e1407e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: StarJourney::StarJourney.UI.EndScreens
+  _gameFlow: {fileID: 1742317087}
+  _deathScreen: {fileID: 216462832}
+  _bloodDeathScreen: {fileID: 1663013182}
+  _finalScreen: {fileID: 1144871323}
+  _finalScoreText: {fileID: 891143372}
 --- !u!1 &1894344978
 GameObject:
   m_ObjectHideFlags: 0
@@ -14658,11 +14492,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958135478}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1976372206 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-  m_PrefabInstance: {fileID: 4650073506229349911}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1983201220 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6240889017164580610, guid: 128ca3153430f334bb235e577ae6009a, type: 3}
@@ -20427,67 +20256,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5682350076994700545, guid: a364be1f6fd4e6d41acad3338e0904e7, type: 3}
   m_PrefabInstance: {fileID: 508949422125653751}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4650073506229349911
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883193, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650073504304883194, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
-      propertyPath: m_Name
-      value: WaterPointFinish
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2bcd773f377eb814eb3e9d3e086d4ca9, type: 3}
+--- !u!82 &508949422125653753 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5510715210549120367, guid: a364be1f6fd4e6d41acad3338e0904e7, type: 3}
+  m_PrefabInstance: {fileID: 508949422125653751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5188053906337385789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20565,67 +20338,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8581ba9132703494a9da25078459be8f, type: 3}
---- !u!1001 &7814554413285660762
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7814554413203927824, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_Name
-      value: WaterPointStart
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814554413203927825, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7478596a46470894abd5c5d3b2c1c8b0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -20643,5 +20355,4 @@ SceneRoots:
   - {fileID: 689284782}
   - {fileID: 743507065}
   - {fileID: 34901493}
-  - {fileID: 7814554413285660762}
-  - {fileID: 4650073506229349911}
+  - {fileID: 1742317088}
