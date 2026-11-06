@@ -48,7 +48,7 @@ namespace StarJourney.UI
 
         private void Awake()
         {
-            if (_seal == null || _gameFlow == null || !IsFilled(_healthIcons) || _scoreText == null
+            if (_seal == null || _gameFlow == null || !Validation.IsFilled(_healthIcons) || _scoreText == null
                 || _scorePanel == null || _closeButtonImage == null || _bloodHealthSprite == null
                 || _bloodCloseSprite == null)
             {
@@ -106,24 +106,6 @@ namespace StarJourney.UI
         private void HideScore(int finalScore)
         {
             _scorePanel.SetActive(false);
-        }
-
-        private static bool IsFilled(Image[] images)
-        {
-            if (images == null || images.Length == 0)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < images.Length; i++)
-            {
-                if (images[i] == null)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }

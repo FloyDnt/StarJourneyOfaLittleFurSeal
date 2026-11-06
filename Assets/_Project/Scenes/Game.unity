@@ -50,7 +50,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 12
@@ -234,39 +234,6 @@ MonoBehaviour:
   _firstRiseSounds:
   - {fileID: 8300000, guid: cf084c31d416f6c45a6b6251a9f26290, type: 3}
   - {fileID: 8300000, guid: 9589b0051ff45624f9e7de4b945371be, type: 3}
---- !u!1 &20224241
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 20224242}
-  m_Layer: 0
-  m_Name: CameraPivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &20224242
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20224241}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5317596141999512566}
-  - {fileID: 963194228}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &34901492
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +245,7 @@ GameObject:
   - component: {fileID: 34901493}
   - component: {fileID: 34901494}
   m_Layer: 0
-  m_Name: SpawnPoints
+  m_Name: TideSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,7 +413,7 @@ GameObject:
   - component: {fileID: 50034858}
   - component: {fileID: 50034857}
   m_Layer: 5
-  m_Name: Health_01
+  m_Name: Health1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -614,7 +581,7 @@ GameObject:
   - component: {fileID: 210507169}
   - component: {fileID: 210507168}
   m_Layer: 5
-  m_Name: Death_Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 216462833}
   m_Layer: 5
-  m_Name: UI_Death_Screen
+  m_Name: DeathScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +788,7 @@ GameObject:
   - component: {fileID: 216737334}
   - component: {fileID: 216737333}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,7 +895,7 @@ GameObject:
   - component: {fileID: 263937168}
   - component: {fileID: 263937167}
   m_Layer: 5
-  m_Name: Replay_Button
+  m_Name: ReplayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1059,7 +1026,7 @@ GameObject:
   - component: {fileID: 270567129}
   - component: {fileID: 270567128}
   m_Layer: 5
-  m_Name: Health_03
+  m_Name: Health3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1097,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1382,7 +1349,7 @@ GameObject:
   - component: {fileID: 552726441}
   - component: {fileID: 552726440}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,7 +1509,7 @@ GameObject:
   - component: {fileID: 621770162}
   - component: {fileID: 621770161}
   m_Layer: 5
-  m_Name: Exit_Button
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1928,7 +1895,7 @@ GameObject:
   - component: {fileID: 743507065}
   - component: {fileID: 743507064}
   m_Layer: 0
-  m_Name: BeachNoiseSource
+  m_Name: BeachNoise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2090,7 +2057,7 @@ GameObject:
   - component: {fileID: 757654094}
   - component: {fileID: 757654093}
   m_Layer: 5
-  m_Name: Replay_Button
+  m_Name: ReplayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2222,7 +2189,7 @@ GameObject:
   - component: {fileID: 783893036}
   - component: {fileID: 783893035}
   m_Layer: 5
-  m_Name: Exit_Button
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2574,7 +2541,7 @@ GameObject:
   - component: {fileID: 891143373}
   - component: {fileID: 891143372}
   m_Layer: 5
-  m_Name: ScoreBlood
+  m_Name: FinalScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2619,7 +2586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'CURRENT SCORE:'
+  m_text: 'CURRENT SCORE: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ae6bc08ee4f19e48879f030cdbd1d72, type: 2}
   m_sharedMaterial: {fileID: -6489167893417572066, guid: 4ae6bc08ee4f19e48879f030cdbd1d72, type: 2}
@@ -2802,7 +2769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944538437}
   m_Layer: 5
-  m_Name: UI_Score_Panel
+  m_Name: ScorePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2919,7 +2886,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 20224242}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: -140, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -3060,7 +3027,7 @@ GameObject:
   - component: {fileID: 1084326995}
   - component: {fileID: 1084326994}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3220,7 +3187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144871324}
   m_Layer: 5
-  m_Name: UI_Final_Screen
+  m_Name: FinalScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3263,7 +3230,7 @@ GameObject:
   - component: {fileID: 1151418496}
   - component: {fileID: 1151418495}
   m_Layer: 5
-  m_Name: Score_Text_Box
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3308,7 +3275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score : 0'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ae6bc08ee4f19e48879f030cdbd1d72, type: 2}
   m_sharedMaterial: {fileID: -6489167893417572066, guid: 4ae6bc08ee4f19e48879f030cdbd1d72, type: 2}
@@ -3647,7 +3614,7 @@ GameObject:
   - component: {fileID: 1316083198}
   - component: {fileID: 1316083197}
   m_Layer: 5
-  m_Name: Death_Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3814,7 +3781,7 @@ GameObject:
   - component: {fileID: 1412763327}
   - component: {fileID: 1412763326}
   m_Layer: 0
-  m_Name: BloodTrackSource
+  m_Name: BloodMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3944,7 +3911,7 @@ GameObject:
   - component: {fileID: 1453704612}
   - component: {fileID: 1453704611}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4237,7 +4204,7 @@ GameObject:
   - component: {fileID: 1563841968}
   - component: {fileID: 1563841967}
   m_Layer: 5
-  m_Name: Exit_Button
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4398,7 +4365,7 @@ GameObject:
   - component: {fileID: 1589251914}
   - component: {fileID: 1589251913}
   m_Layer: 0
-  m_Name: MainTrackSource
+  m_Name: GameMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4650,7 +4617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663013183}
   m_Layer: 5
-  m_Name: UI_Death_Blood_Screen
+  m_Name: BloodDeathScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4720,7 +4687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704140980}
   m_Layer: 5
-  m_Name: UI_Closed_Game
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4811,7 +4778,7 @@ GameObject:
   - component: {fileID: 1750627770}
   - component: {fileID: 1750627769}
   m_Layer: 5
-  m_Name: Replay_Button
+  m_Name: ReplayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5184,7 +5151,7 @@ GameObject:
   - component: {fileID: 1920647563}
   - component: {fileID: 1920647562}
   m_Layer: 5
-  m_Name: Health_02
+  m_Name: Health2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5222,7 +5189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5414,7 +5381,7 @@ GameObject:
   - component: {fileID: 2073124749}
   - component: {fileID: 2073124748}
   m_Layer: 5
-  m_Name: Death_Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5642,7 +5609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2123450100}
   m_Layer: 5
-  m_Name: UI_Health_Panel
+  m_Name: HealthPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5775,7 +5742,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 20224242}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5434112491098461080
 AudioSource:
@@ -5898,7 +5865,8 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1003674135}
   - {fileID: 14897755}
-  - {fileID: 20224242}
+  - {fileID: 963194228}
+  - {fileID: 5317596141999512566}
   - {fileID: 4394364304862442507}
   - {fileID: 1821496635}
   - {fileID: 1290220606}

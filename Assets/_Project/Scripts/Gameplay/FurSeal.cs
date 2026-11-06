@@ -113,9 +113,9 @@ namespace StarJourney.Gameplay
 
         private void Awake()
         {
-            if (_hopTarget == null || _sfx == null || IsEmpty(_hopSounds) || IsEmpty(_pickupSounds)
-                || IsEmpty(_hitSounds) || _pickupSplash == null || _pickupSplashBlood == null || _hitSplash == null
-                || _hitSplashBlood == null)
+            if (_hopTarget == null || _sfx == null || !Validation.IsFilled(_hopSounds)
+                || !Validation.IsFilled(_pickupSounds) || !Validation.IsFilled(_hitSounds) || _pickupSplash == null
+                || _pickupSplashBlood == null || _hitSplash == null || _hitSplashBlood == null)
             {
                 Debug.LogError($"{nameof(FurSeal)} on '{name}' needs a hop target, a sound source, its sounds and "
                     + "its four splashes.", this);
@@ -155,7 +155,8 @@ namespace StarJourney.Gameplay
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (IsDead)
+            // Unity sends collision messages to disabled components too.
+            if (!enabled || IsDead)
             {
                 return;
             }
@@ -201,11 +202,6 @@ namespace StarJourney.Gameplay
         private void PlayRandom(AudioClip[] clips)
         {
             _sfx.PlayOneShot(clips[Random.Range(0, clips.Length)]);
-        }
-
-        private static bool IsEmpty(AudioClip[] clips)
-        {
-            return clips == null || clips.Length == 0;
         }
     }
 }

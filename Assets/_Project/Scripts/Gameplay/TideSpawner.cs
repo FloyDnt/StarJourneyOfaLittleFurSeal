@@ -50,7 +50,7 @@ namespace StarJourney.Gameplay
         private void Awake()
         {
             if (_clearTide == null || _bloodTide == null || !_clearSpawns.IsValid || !_bloodSpawns.IsValid
-                || !IsFilled(_spawnPoints))
+                || !Validation.IsFilled(_spawnPoints))
             {
                 Debug.LogError($"{nameof(TideSpawner)} on '{name}' needs both tides, their spawn tables and the "
                     + "spawn points.", this);
@@ -130,25 +130,6 @@ namespace StarJourney.Gameplay
             return pool;
         }
 
-        private static bool IsFilled<T>(T[] items)
-            where T : UnityEngine.Object
-        {
-            if (items == null || items.Length == 0)
-            {
-                return false;
-            }
-
-            for (int i = 0; i < items.Length; i++)
-            {
-                if (items[i] == null)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         private static void ReturnToPool(GameObject prop)
         {
             prop.SetActive(false);
@@ -178,7 +159,7 @@ namespace StarJourney.Gameplay
             [Tooltip("Thirds of the spawns that are pickups; the rest are hazards.")]
             private int _pickupThirds = 2;
 
-            public bool IsValid => IsFilled(_pickups) && IsFilled(_hazards);
+            public bool IsValid => Validation.IsFilled(_pickups) && Validation.IsFilled(_hazards);
 
             public GameObject PickPrefab()
             {

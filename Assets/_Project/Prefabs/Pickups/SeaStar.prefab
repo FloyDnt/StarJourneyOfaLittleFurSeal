@@ -76,10 +76,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1557179268253317291}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 529aa9b0425f89e4bbd1184fbdb874df, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 529aa9b0425f89e4bbd1184fbdb874df, type: 3}
       propertyPath: m_LocalScale.x
       value: 30
       objectReference: {fileID: 0}
@@ -143,10 +139,6 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 72aab317b84b28943bcc8eea1bfc9e3d, type: 2}
-    - target: {fileID: 919132149155446097, guid: 529aa9b0425f89e4bbd1184fbdb874df, type: 3}
-      propertyPath: m_Name
-      value: star_lp_final
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

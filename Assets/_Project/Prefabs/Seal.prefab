@@ -171,10 +171,6 @@ PrefabInstance:
       value: PickupSplash
       objectReference: {fileID: 0}
     - target: {fileID: 4659717447080349142, guid: 726404db69026a1469aa9133e456cb23, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4659717447080349142, guid: 726404db69026a1469aa9133e456cb23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -372,10 +368,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 3174080844985512489}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cb9cb03c46906b04dac9279ffad7cc60, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cb9cb03c46906b04dac9279ffad7cc60, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
       objectReference: {fileID: 0}
@@ -430,10 +422,6 @@ PrefabInstance:
     - target: {fileID: -6957391940703845233, guid: cb9cb03c46906b04dac9279ffad7cc60, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.031
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: cb9cb03c46906b04dac9279ffad7cc60, type: 3}
-      propertyPath: m_Name
-      value: seal_lp_final
       objectReference: {fileID: 0}
     - target: {fileID: 6589126927893049898, guid: cb9cb03c46906b04dac9279ffad7cc60, type: 3}
       propertyPath: m_Materials.Array.size
@@ -497,10 +485,6 @@ PrefabInstance:
     - target: {fileID: 4477526028944244162, guid: 128ca3153430f334bb235e577ae6009a, type: 3}
       propertyPath: m_Name
       value: PickupSplashBlood
-      objectReference: {fileID: 0}
-    - target: {fileID: 4659717447080349142, guid: 128ca3153430f334bb235e577ae6009a, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4659717447080349142, guid: 128ca3153430f334bb235e577ae6009a, type: 3}
       propertyPath: m_LocalPosition.x

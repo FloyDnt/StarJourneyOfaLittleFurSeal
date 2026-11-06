@@ -50,7 +50,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 12
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 300386467}
   - component: {fileID: 300386466}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CreditsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 731184330}
   - component: {fileID: 731184329}
   m_Layer: 5
-  m_Name: New_Game_Button
+  m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 784976021}
   - component: {fileID: 784976020}
   m_Layer: 5
-  m_Name: Ludum_Button
+  m_Name: LudumDareButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 910099227}
   - component: {fileID: 910099226}
   m_Layer: 5
-  m_Name: Ok_Button
+  m_Name: OkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1048,7 +1048,7 @@ GameObject:
   - component: {fileID: 922981974}
   - component: {fileID: 922981973}
   m_Layer: 0
-  m_Name: MainMenuSource
+  m_Name: MenuMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,7 +1341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594571582}
   m_Layer: 5
-  m_Name: UI_Buttons
+  m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 1729525755}
   - component: {fileID: 1729525754}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,7 +1561,7 @@ GameObject:
   - component: {fileID: 1841165202}
   - component: {fileID: 1841165201}
   m_Layer: 5
-  m_Name: Exit_Button
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,7 +1691,7 @@ GameObject:
   - component: {fileID: 1877412410}
   - component: {fileID: 1877412409}
   m_Layer: 0
-  m_Name: SeaSource
+  m_Name: SeaNoise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1819,7 +1819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2071133090}
   m_Layer: 5
-  m_Name: UI_Ludum_Info
+  m_Name: LudumDareInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
