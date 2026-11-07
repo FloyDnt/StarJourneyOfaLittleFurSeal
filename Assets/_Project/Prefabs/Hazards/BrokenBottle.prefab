@@ -107,6 +107,8 @@ MonoBehaviour:
   _radius: 1.3
   _lift: 0.04
   _footprintCenter: {x: 0, y: 0.26}
+  _fadeDepth: 0.3
+  _carriedFade: 0.4
 --- !u!1 &8621858614636739659
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +120,8 @@ GameObject:
   - component: {fileID: 6225445279825865508}
   - component: {fileID: -6031424973580470645}
   - component: {fileID: 8991979340146949210}
+  - component: {fileID: 1367274461984146992}
+  - component: {fileID: 3219089589926571485}
   m_Layer: 0
   m_Name: BrokenBottle
   m_TagString: Untagged
@@ -175,6 +179,62 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3, y: 1, z: 1.3}
   m_Center: {x: 0, y: 0.75, z: 0.26}
+--- !u!54 &1367274461984146992
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621858614636739659}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3219089589926571485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8621858614636739659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5623f5d0523e6c94ea9b9f4a73ddc15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: StarJourney::StarJourney.Gameplay.WashedProp
+  _isLight: 0
+  _model: {fileID: 2637394190639105653}
+  _ring: {fileID: 4148052536935035183}
+  _carryDepth: 0.15
+  _surfaceDuration: 0.4
+  _dragChance: 0.5
+  _fullDragShare: 0.4
+  _partialDragDistance: {x: 1.5, y: 4}
+  _dragSpeed: 8
+  _driftOutSpeed: 3
+  _maxDriftDuration: 4
+  _tossBaseDuration: 0.35
+  _tossDurationPerUnit: 0.05
+  _maxTossDuration: 0.65
+  _tossBaseHeight: 0.5
+  _tossHeightPerUnit: 0.15
+  _vanishDuration: 0.25
 --- !u!1001 &2527453389693149598
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -107,6 +107,8 @@ MonoBehaviour:
   _radius: 1.6
   _lift: 0.04
   _footprintCenter: {x: 0.7, y: 0}
+  _fadeDepth: 0.3
+  _carriedFade: 0.4
 --- !u!1 &9194226815029290603
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +120,8 @@ GameObject:
   - component: {fileID: 6449708320574439316}
   - component: {fileID: -892146885527035531}
   - component: {fileID: -2808034432917810848}
+  - component: {fileID: 9008575948782721740}
+  - component: {fileID: 2567020973630032598}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -175,6 +179,62 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0.7, y: 0.35, z: 0}
+--- !u!54 &9008575948782721740
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194226815029290603}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2567020973630032598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194226815029290603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5623f5d0523e6c94ea9b9f4a73ddc15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: StarJourney::StarJourney.Gameplay.WashedProp
+  _isLight: 0
+  _model: {fileID: 7481513810609642623}
+  _ring: {fileID: 2116330582911249882}
+  _carryDepth: 0.15
+  _surfaceDuration: 0.4
+  _dragChance: 0.5
+  _fullDragShare: 0.4
+  _partialDragDistance: {x: 1.5, y: 4}
+  _dragSpeed: 8
+  _driftOutSpeed: 3
+  _maxDriftDuration: 4
+  _tossBaseDuration: 0.35
+  _tossDurationPerUnit: 0.05
+  _maxTossDuration: 0.65
+  _tossBaseHeight: 0.5
+  _tossHeightPerUnit: 0.15
+  _vanishDuration: 0.25
 --- !u!1001 &6942602640726195092
 PrefabInstance:
   m_ObjectHideFlags: 0
