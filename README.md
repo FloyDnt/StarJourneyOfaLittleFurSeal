@@ -16,12 +16,9 @@ The Windows build is on [itch.io](https://the-cyberdog-we-deserve.itch.io/star-j
 | Stop turning and charge a jump; a line on the sand shows where it lands | Hold the left mouse button |
 | Jump the way the seal faces, farther the longer you held | Release the button |
 
-- Every wave washes ten things onto the beach: they ride in on the water's edge, and the crest throws the rest up the
-  sand. Bottles, buckets, cans and slippers give 100 points each; broken bottles and sea urchins hurt, even while the
-  water carries them. Three hits and the seal is done.
+- Every wave washes ten things onto the beach. Bottles, buckets, cans and slippers give 100 points each; broken
+  bottles and sea urchins hurt. Three hits and the seal is done.
 - A yellow-green ring on the sand marks a thing worth points, a red ring one that hurts.
-- The receding wave can drag light things (bottles, buckets, cans, slippers and sea stars) down the beach or back into
-  the sea, and the next wave sweeps away whatever is left.
 - After the seventh wave the sea turns to blood for three more waves: crabs and sea stars still give points, and the
   beach fills with mines. Survive them to see your score.
 
@@ -61,12 +58,9 @@ inside it, so that is the one `Resources` folder in the project.
   and `Died`.
 - `JumpInput` turns presses on the beach, but not on buttons, into the seal's `Press` and `Release`;
   `JumpArcPreview` draws the arc of the charged jump.
-- Two `Tide`s move the clear sea and the sea of blood in waves and raise `RiseStarted`, `Crested`, `FallStarted` and
-  `Completed`.
-- `TideSpawner` washes a batch of props in with every wave and sweeps the previous one out, moving them all from its
-  fixed step and reusing them through one `ObjectPool` per prefab.
-- Each prop's `WashedProp` rides the water's edge up the sand, is thrown at the crest, may be dragged back and is swept
-  out; its `PropRing` marks it on the sand.
+- Two `Tide`s move the clear sea and the sea of blood in waves and raise `Crested` and `Completed`.
+- `TideSpawner` washes a batch of props onto the beach at every crest, reusing them through one `ObjectPool` per
+  prefab; each prop's `PropRing` marks it on the sand.
 - `GameFlow` starts the sea of blood, ends the game and stops time, and raises `BloodPhaseStarted`, `GameFinished`
   and `SealDied`.
 - `Hud` and `EndScreens` listen to those events; `MenuButtons` and `SceneLoader` switch scenes.

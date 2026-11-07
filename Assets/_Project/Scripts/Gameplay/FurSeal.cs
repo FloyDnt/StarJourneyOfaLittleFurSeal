@@ -354,7 +354,7 @@ namespace StarJourney.Gameplay
                 return;
             }
 
-            // A prop's Rigidbody sits on its root, next to its Pickup or Hazard, so this is the prop itself.
+            // The props have no Rigidbody, so this is the GameObject of the collider that was touched.
             GameObject other = collision.gameObject;
             if (other.TryGetComponent(out Pickup pickup))
             {

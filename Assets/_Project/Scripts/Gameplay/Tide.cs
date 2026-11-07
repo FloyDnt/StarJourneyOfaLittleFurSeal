@@ -22,10 +22,6 @@ namespace StarJourney.Gameplay
         [Tooltip("World height of the water at the crest of a wave.")]
         private float _highHeight = -6f;
 
-        [SerializeField]
-        [Tooltip("Height of the water surface above the object's position: half the water cube's height.")]
-        private float _surfaceOffset = 0.5f;
-
         [SerializeField, Min(0f)]
         [Tooltip("Rising and falling speed in units per second.")]
         private float _speed = 1f;
@@ -59,16 +55,11 @@ namespace StarJourney.Gameplay
         [Tooltip("Sounds played at the start of the first rise only.")]
         private AudioClip[] _firstRiseSounds;
 
-        private TidePhase _phase;
+        private Phase _phase;
         private float _timer;
         private int _crests;
         private bool _isRiseStarted;
         private bool _hasRisen;
-
-        /// <summary>
-        /// Raised in the step in which the water starts to rise, before it moves in that step.
-        /// </summary>
-        public event Action RiseStarted;
 
         /// <summary>
         /// Raised in the step in which a wave reaches the high height.
@@ -76,59 +67,17 @@ namespace StarJourney.Gameplay
         public event Action Crested;
 
         /// <summary>
-        /// Raised right after <see cref="Crested"/>, in the same step: the water falls from the next step on.
-        /// </summary>
-        public event Action FallStarted;
-
-        /// <summary>
         /// Raised once, after the last wave. The tide stops moving.
         /// </summary>
         public event Action Completed;
 
-        /// <summary>
-        /// What the water is doing.
-        /// </summary>
-        public TidePhase Phase => _phase;
-
-        /// <summary>
-        /// World height of the water surface now.
-        /// </summary>
-        public float SurfaceHeight => transform.position.y + _surfaceOffset;
-
-        /// <summary>
-        /// World height of the water surface at rest.
-        /// </summary>
-        public float LowSurfaceHeight => _lowHeight + _surfaceOffset;
-
-        /// <summary>
-        /// World height of the water surface at the crest of a wave.
-        /// </summary>
-        public float HighSurfaceHeight => _highHeight + _surfaceOffset;
-
-        /// <summary>
-        /// How far the current rise or fall has got, from 0 to 1. Zero while the water waits or rests.
-        /// </summary>
-        public float Progress
+        private enum Phase
         {
-            get
-            {
-                float range = _highHeight - _lowHeight;
-                if (range <= 0f)
-                {
-                    return 0f;
-                }
-
-                float y = transform.position.y;
-                switch (_phase)
-                {
-                    case TidePhase.Rising:
-                        return Mathf.Clamp01((y - _lowHeight) / range);
-                    case TidePhase.Falling:
-                        return Mathf.Clamp01((_highHeight - y) / range);
-                    default:
-                        return 0f;
-                }
-            }
+            Waiting,
+            Rising,
+            Falling,
+            Resting,
+            Done,
         }
 
         private void Awake()
@@ -140,7 +89,7 @@ namespace StarJourney.Gameplay
                 return;
             }
 
-            _phase = TidePhase.Waiting;
+            _phase = Phase.Waiting;
             _timer = _startDelay;
         }
 
@@ -148,21 +97,21 @@ namespace StarJourney.Gameplay
         {
             switch (_phase)
             {
-                case TidePhase.Waiting:
+                case Phase.Waiting:
                     Wait();
                     break;
-                case TidePhase.Rising:
+                case Phase.Rising:
                     Rise();
                     break;
-                case TidePhase.Falling:
+                case Phase.Falling:
                     if (MoveTo(_lowHeight))
                     {
-                        _phase = TidePhase.Resting;
+                        _phase = Phase.Resting;
                         Rest();
                     }
 
                     break;
-                case TidePhase.Resting:
+                case Phase.Resting:
                     // Keeps pulling the water onto the low height, which it reached only within the tolerance.
                     MoveTo(_lowHeight);
                     Rest();
@@ -180,7 +129,7 @@ namespace StarJourney.Gameplay
             }
 
             _timer = _restDuration;
-            _phase = TidePhase.Rising;
+            _phase = Phase.Rising;
             Rise();
         }
 
@@ -195,16 +144,13 @@ namespace StarJourney.Gameplay
                     _hasRisen = true;
                     PlayAll(_firstRiseSounds);
                 }
-
-                RiseStarted?.Invoke();
             }
 
             if (MoveTo(_highHeight))
             {
                 _crests++;
-                _phase = TidePhase.Falling;
+                _phase = Phase.Falling;
                 Crested?.Invoke();
-                FallStarted?.Invoke();
             }
         }
 
@@ -216,7 +162,7 @@ namespace StarJourney.Gameplay
             {
                 _timer = _restDuration;
                 _isRiseStarted = false;
-                _phase = TidePhase.Rising;
+                _phase = Phase.Rising;
                 return;
             }
 
@@ -224,7 +170,7 @@ namespace StarJourney.Gameplay
 
             if (_crests >= _waveCount && (!_completeAfterLastRest || _timer <= 0f))
             {
-                _phase = TidePhase.Done;
+                _phase = Phase.Done;
                 Completed?.Invoke();
             }
         }
