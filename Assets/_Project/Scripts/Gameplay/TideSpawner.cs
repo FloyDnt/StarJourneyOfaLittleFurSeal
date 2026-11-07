@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 namespace StarJourney.Gameplay
 {
     /// <summary>
-    /// Washes a batch of props onto the beach at every crest of the two tides and puts a ring on the sand under each.
-    /// Each batch replaces the previous one, and the props are reused through one pool per prefab.
+    /// Washes a batch of props onto the beach at every crest of the two tides. Each batch replaces the previous one,
+    /// and the props are reused through one pool per prefab.
     /// </summary>
     public sealed class TideSpawner : MonoBehaviour
     {
@@ -42,34 +42,20 @@ namespace StarJourney.Gameplay
         [Tooltip("Props spawned at every crest.")]
         private int _batchSize = 10;
 
-        [SerializeField]
-        [Tooltip("The beach the props are washed onto.")]
-        private Terrain _terrain;
-
-        [SerializeField]
-        [Tooltip("Horizontal direction from the beach to the sea; props come from and go back that way.")]
-        private Vector3 _seaDirection = new Vector3(-0.984f, 0f, -0.177f);
-
         private readonly Dictionary<GameObject, ObjectPool<GameObject>> _pools =
             new Dictionary<GameObject, ObjectPool<GameObject>>();
 
         private readonly List<SpawnedProp> _batch = new List<SpawnedProp>();
 
-        private Beach _beach;
-
         private void Awake()
         {
             if (_clearTide == null || _bloodTide == null || !_clearSpawns.IsValid || !_bloodSpawns.IsValid
-                || !Validation.IsFilled(_spawnPoints) || _terrain == null
-                || new Vector3(_seaDirection.x, 0f, _seaDirection.z) == Vector3.zero)
+                || !Validation.IsFilled(_spawnPoints))
             {
-                Debug.LogError($"{nameof(TideSpawner)} on '{name}' needs both tides, their spawn tables, the "
-                    + "spawn points, the beach terrain and a horizontal sea direction.", this);
+                Debug.LogError($"{nameof(TideSpawner)} on '{name}' needs both tides, their spawn tables and the "
+                    + "spawn points.", this);
                 enabled = false;
-                return;
             }
-
-            _beach = new Beach(_terrain, _seaDirection);
         }
 
         private void OnEnable()
@@ -117,12 +103,6 @@ namespace StarJourney.Gameplay
                 GameObject prop = pool.Get();
                 prop.transform.SetPositionAndRotation(point.position, rotation);
                 prop.SetActive(true);
-                PropRing ring = prop.GetComponentInChildren<PropRing>();
-                if (ring != null)
-                {
-                    ring.Attach(_beach);
-                }
-
                 _batch.Add(new SpawnedProp(prop, pool));
             }
         }

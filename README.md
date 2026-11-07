@@ -18,7 +18,6 @@ The Windows build is on [itch.io](https://the-cyberdog-we-deserve.itch.io/star-j
 
 - Every wave washes ten things onto the beach. Bottles, buckets, cans and slippers give 100 points each; broken
   bottles and sea urchins hurt. Three hits and the seal is done.
-- A yellow-green ring on the sand marks a thing worth points, a red ring one that hurts.
 - After the seventh wave the sea turns to blood for three more waves: crabs and sea stars still give points, and the
   beach fills with mines. Survive them to see your score.
 
@@ -60,7 +59,7 @@ inside it, so that is the one `Resources` folder in the project.
   `ChargeGauge` fills a gauge beside the seal while it charges, from its `ChargeStarted` to its `ChargeEnded`.
 - Two `Tide`s move the clear sea and the sea of blood in waves and raise `Crested` and `Completed`.
 - `TideSpawner` washes a batch of props onto the beach at every crest, reusing them through one `ObjectPool` per
-  prefab; each prop's `PropRing` marks it on the sand.
+  prefab.
 - `GameFlow` starts the sea of blood, ends the game and stops time, and raises `BloodPhaseStarted`, `GameFinished`
   and `SealDied`.
 - `Hud` and `EndScreens` listen to those events; `MenuButtons` and `SceneLoader` switch scenes.
