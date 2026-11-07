@@ -25,3 +25,6 @@
 *.pdf binary
 *.dll binary
 *.zip binary
+
+# Third-party code Unity copies into the project: left out of GitHub's language statistics.
+Assets/TextMesh?Pro/** linguist-vendored
