@@ -17,8 +17,8 @@ namespace StarJourney.Gameplay
         private const float FullTurnDegrees = 360f;
 
         [SerializeField, Min(0f)]
-        [Tooltip("Degrees the seal turns around its vertical axis every rendered frame.")]
-        private float _turnStepDegrees = 2f;
+        [Tooltip("Degrees per second the seal turns around its vertical axis while idle on the ground.")]
+        private float _turnSpeed = 120f;
 
         [SerializeField]
         [Tooltip("Child point that a hop moves the seal to.")]
@@ -61,6 +61,7 @@ namespace StarJourney.Gameplay
         [Tooltip("Splash played on a hit in the blood phase.")]
         private ParticleSystem _hitSplashBlood;
 
+        private Rigidbody _body;
         private float _yaw;
         private Vector3 _pendingHop;
         private int _score;
@@ -113,6 +114,11 @@ namespace StarJourney.Gameplay
 
         private void Awake()
         {
+            _body = GetComponent<Rigidbody>();
+
+            // From here on the yaw is accumulated and never read back from the body, so the turn cannot drift.
+            _yaw = _body.rotation.eulerAngles.y;
+
             if (_hopTarget == null || _sfx == null || !Validation.IsFilled(_hopSounds)
                 || !Validation.IsFilled(_pickupSounds) || !Validation.IsFilled(_hitSounds) || _pickupSplash == null
                 || _pickupSplashBlood == null || _hitSplash == null || _hitSplashBlood == null)
@@ -130,26 +136,24 @@ namespace StarJourney.Gameplay
             {
                 Hop();
             }
-
-            // The turn is a fixed step per rendered frame, so its speed follows the frame rate as it always did.
-            _yaw += _turnStepDegrees;
-            if (_yaw > FullTurnDegrees)
-            {
-                _yaw -= FullTurnDegrees;
-            }
-
-            transform.rotation = Quaternion.Euler(0f, _yaw, 0f);
         }
 
         private void FixedUpdate()
         {
-            // A hop is a teleport of the Transform, as it always was, and the physics step picks it up together
-            // with the turn made in Update. Writing Rigidbody.position instead drops the hop's Z part, because the
-            // body's Z position is frozen.
+            _yaw = Mathf.Repeat(_yaw + _turnSpeed * Time.fixedDeltaTime, FullTurnDegrees);
+            Quaternion rotation = Quaternion.Euler(0f, _yaw, 0f);
+
+            // A hop is a teleport of the Transform, as it always was. Writing Rigidbody.position instead drops the
+            // hop's Z part, because the body's Z position is frozen. The turn is written in the same call, so the
+            // physics step picks up one consistent pose from the Transform.
             if (_pendingHop != Vector3.zero)
             {
-                transform.position += _pendingHop;
+                transform.SetPositionAndRotation(transform.position + _pendingHop, rotation);
                 _pendingHop = Vector3.zero;
+            }
+            else
+            {
+                _body.MoveRotation(rotation);
             }
         }
 
