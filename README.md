@@ -2,8 +2,8 @@
 
 A small 3D arcade game about a fur seal harvesting a beach between the waves, made in three days for the
 [Ludum Dare 52](https://ldjam.com/events/ludum-dare/52/star-journey-of-a-little-fur-seal) game jam. The seal turns on
-the spot all the time; click to hop the way it faces, collect what the sea washes up and keep away from the sharp
-things. After seven waves the sea turns to blood.
+the spot; hold the mouse button to charge a jump the way it faces and release to jump, collect what the sea washes up
+and keep away from the sharp things. After seven waves the sea turns to blood.
 
 The Windows build is on [itch.io](https://the-cyberdog-we-deserve.itch.io/star-journey-of-a-little-fur-seal).
 
@@ -13,7 +13,8 @@ The Windows build is on [itch.io](https://the-cyberdog-we-deserve.itch.io/star-j
 
 | Action | Input |
 | --- | --- |
-| Hop the way the seal faces | Left mouse button |
+| Stop turning and charge a jump; a gauge beside the seal fills as the jump grows | Hold the left mouse button |
+| Jump the way the seal faces, farther the longer you held | Release the button |
 
 - Every wave washes ten things onto the beach. Bottles, buckets, cans and slippers give 100 points each; broken
   bottles and sea urchins hurt. Three hits and the seal is done.
@@ -51,8 +52,11 @@ inside it, so that is the one `Resources` folder in the project.
 
 ## How the code fits together
 
-- `FurSeal` turns every frame, hops on a click and handles what it touches: a `Pickup` adds points, a `Hazard` is a
-  hit. It raises `ScoreChanged`, `HitsChanged` and `Died`.
+- `FurSeal` turns while it stands, charges a jump while the button is held and jumps with real physics on release.
+  It handles what it touches: a `Pickup` adds points, a `Hazard` is a hit. It raises `ScoreChanged`, `HitsChanged`
+  and `Died`.
+- `JumpInput` turns presses on the beach, but not on buttons, into the seal's `Press` and `Release`;
+  `ChargeGauge` fills a gauge beside the seal while it charges, from its `ChargeStarted` to its `ChargeEnded`.
 - Two `Tide`s move the clear sea and the sea of blood in waves and raise `Crested` and `Completed`.
 - `TideSpawner` washes a batch of props onto the beach at every crest, reusing them through one `ObjectPool` per
   prefab.
