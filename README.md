@@ -13,7 +13,7 @@ The Windows build is on [itch.io](https://the-cyberdog-we-deserve.itch.io/star-j
 
 | Action | Input |
 | --- | --- |
-| Stop turning and charge a jump; a line on the sand shows where it lands | Hold the left mouse button |
+| Stop turning and charge a jump; a gauge beside the seal fills as the jump grows | Hold the left mouse button |
 | Jump the way the seal faces, farther the longer you held | Release the button |
 
 - Every wave washes ten things onto the beach. Bottles, buckets, cans and slippers give 100 points each; broken
@@ -57,7 +57,7 @@ inside it, so that is the one `Resources` folder in the project.
   It handles what it touches: a `Pickup` adds points, a `Hazard` is a hit. It raises `ScoreChanged`, `HitsChanged`
   and `Died`.
 - `JumpInput` turns presses on the beach, but not on buttons, into the seal's `Press` and `Release`;
-  `JumpArcPreview` draws the arc of the charged jump.
+  `ChargeGauge` fills a gauge beside the seal while it charges, from its `ChargeStarted` to its `ChargeEnded`.
 - Two `Tide`s move the clear sea and the sea of blood in waves and raise `Crested` and `Completed`.
 - `TideSpawner` washes a batch of props onto the beach at every crest, reusing them through one `ObjectPool` per
   prefab; each prop's `PropRing` marks it on the sand.

@@ -1467,6 +1467,87 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &594789349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594789350}
+  - component: {fileID: 594789352}
+  - component: {fileID: 594789351}
+  m_Layer: 5
+  m_Name: ChargeGauge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &594789350
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594789349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1821496635}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 152, y: 152}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &594789351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594789349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4963473fb7bc3c4abe969c2e7ef886e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: StarJourney::StarJourney.UI.ChargeGauge
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _seal: {fileID: 1286179160}
+  _radius: 60
+  _thickness: 14
+  _startAngle: 60
+  _sweepAngle: 90
+  _gapAngle: 3
+  _segmentColors:
+  - {r: 0.23921569, g: 0.74509805, b: 0.22745098, a: 1}
+  - {r: 0.64705884, g: 0.8235294, b: 0.22745098, a: 1}
+  - {r: 0.9490196, g: 0.827451, b: 0.105882354, a: 1}
+  - {r: 0.9529412, g: 0.5411765, b: 0.11764706, a: 1}
+  - {r: 0.8980392, g: 0.19215687, b: 0.16862746, a: 1}
+  _trackBrightness: 0.35
+  _trackAlpha: 0.75
+  _outlineColor: {r: 0.08, g: 0.06, b: 0.05, a: 0.85}
+  _outlineWidth: 2
+--- !u!222 &594789352
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594789349}
+  m_CullTransparentMesh: 1
 --- !u!1 &620708358
 GameObject:
   m_ObjectHideFlags: 0
@@ -5147,6 +5228,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1481703280}
+  - {fileID: 594789350}
   - {fileID: 2123450100}
   - {fileID: 1704140980}
   - {fileID: 944538437}

@@ -97,10 +97,6 @@ namespace StarJourney.Gameplay
         private float _cancelSquashDuration = 0.15f;
 
         [SerializeField]
-        [Tooltip("Preview of the jump shown while charging.")]
-        private JumpArcPreview _arc;
-
-        [SerializeField]
         [Tooltip("Source that plays the hop, pickup and hit sounds.")]
         private AudioSource _sfx;
 
@@ -167,6 +163,17 @@ namespace StarJourney.Gameplay
         public event Action Died;
 
         /// <summary>
+        /// Raised when a press starts charging a jump.
+        /// </summary>
+        public event Action ChargeStarted;
+
+        /// <summary>
+        /// Raised once for every <see cref="ChargeStarted"/>: when the button is released, when the seal loses the
+        /// ground and the charge is cancelled, or when the seal is disabled or destroyed while charging.
+        /// </summary>
+        public event Action ChargeEnded;
+
+        /// <summary>
         /// Points collected so far.
         /// </summary>
         public int Score => _score;
@@ -192,6 +199,16 @@ namespace StarJourney.Gameplay
         public float Charge => _state == JumpState.Charging ? HeldFraction : 0f;
 
         /// <summary>
+        /// Power of the jump being charged, 0..1, eased the way the jump distance grows; 0 when no charge is held.
+        /// </summary>
+        public float ChargePower => IsChargeHeld ? Power(HeldFraction) : 0f;
+
+        /// <summary>
+        /// World position of the centre of the seal's body as rendered this frame.
+        /// </summary>
+        public Vector3 BodyCentre => transform.TransformPoint(_collider.center);
+
+        /// <summary>
         /// Flat-ground distance of a jump released now.
         /// </summary>
         public float JumpDistance => Mathf.Lerp(_minJumpDistance, _maxJumpDistance, Power(Charge));
@@ -214,13 +231,9 @@ namespace StarJourney.Gameplay
             }
         }
 
-        /// <summary>
-        /// Point on the ground where the previewed jump ends while charging; otherwise the seal's position.
-        /// </summary>
-        public Vector3 PredictedLanding =>
-            _state == JumpState.Charging && _arc.IsVisible ? _arc.EndPoint : _body.position;
-
         private bool IsDead => _hits >= HitsToDie;
+
+        private bool IsChargeHeld => _state == JumpState.Charging && !_launchPending;
 
         private float HeldFraction => Mathf.Clamp01(_holdTime / _chargeDuration);
 
@@ -241,7 +254,7 @@ namespace StarJourney.Gameplay
             _holdTime = 0f;
             _launchPending = false;
             _squashTimer = 0f;
-            ShowArc();
+            ChargeStarted?.Invoke();
         }
 
         /// <summary>
@@ -250,13 +263,14 @@ namespace StarJourney.Gameplay
         /// </summary>
         public void Release()
         {
-            if (!enabled || _state != JumpState.Charging || _launchPending)
+            if (!enabled || !IsChargeHeld)
             {
                 return;
             }
 
             _launchPower = Power(HeldFraction);
             _launchPending = true;
+            ChargeEnded?.Invoke();
         }
 
         private void Awake()
@@ -267,23 +281,22 @@ namespace StarJourney.Gameplay
             // From here on the yaw is accumulated and never read back from the body, so the turn cannot drift.
             _yaw = _body.rotation.eulerAngles.y;
 
-            if (_chargeCurve == null || _chargeCurve.length == 0 || _squash == null || _arc == null || _sfx == null
+            if (_chargeCurve == null || _chargeCurve.length == 0 || _squash == null || _sfx == null
                 || !Validation.IsFilled(_hopSounds) || !Validation.IsFilled(_pickupSounds)
                 || !Validation.IsFilled(_hitSounds) || _pickupSplash == null || _pickupSplashBlood == null
                 || _hitSplash == null || _hitSplashBlood == null)
             {
-                Debug.LogError($"{nameof(FurSeal)} on '{name}' needs a charge curve, its squash transform, its jump "
-                    + "preview, a sound source, its sounds and its four splashes.", this);
+                Debug.LogError($"{nameof(FurSeal)} on '{name}' needs a charge curve, its squash transform, a sound "
+                    + "source, its sounds and its four splashes.", this);
                 enabled = false;
             }
         }
 
         private void Update()
         {
-            if (_state == JumpState.Charging && !_launchPending)
+            if (IsChargeHeld)
             {
                 _holdTime += Time.deltaTime;
-                ShowArc();
             }
 
             UpdateSquash();
@@ -346,6 +359,16 @@ namespace StarJourney.Gameplay
             }
         }
 
+        private void OnDisable()
+        {
+            // Death and the end of the game destroy the seal mid-charge; the listeners still hear the charge end.
+            if (IsChargeHeld)
+            {
+                _state = JumpState.Idle;
+                ChargeEnded?.Invoke();
+            }
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
             // Unity sends collision messages to disabled components too.
@@ -379,12 +402,6 @@ namespace StarJourney.Gameplay
             return speed * (Mathf.Cos(angle) * Forward + Mathf.Sin(angle) * Vector3.up);
         }
 
-        private void ShowArc()
-        {
-            float power = Power(HeldFraction);
-            _arc.Show(Centre, LaunchVelocity(power), power);
-        }
-
         private void ProbeGround()
         {
             float radius = _collider.radius - ProbeInset;
@@ -400,7 +417,6 @@ namespace StarJourney.Gameplay
         {
             _launchPending = false;
             _body.linearVelocity = LaunchVelocity(_launchPower);
-            _arc.Hide();
             PlayRandom(_hopSounds);
 
             _state = JumpState.Airborne;
@@ -421,9 +437,13 @@ namespace StarJourney.Gameplay
         {
             if (_state == JumpState.Charging)
             {
+                bool wasHeld = !_launchPending;
                 _launchPending = false;
-                _arc.Hide();
                 StartSquash(_squashScale, _cancelSquashDuration);
+                if (wasHeld)
+                {
+                    ChargeEnded?.Invoke();
+                }
             }
 
             _state = JumpState.Airborne;
