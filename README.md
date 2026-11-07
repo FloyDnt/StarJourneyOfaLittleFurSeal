@@ -2,8 +2,8 @@
 
 A small 3D arcade game about a fur seal harvesting a beach between the waves, made in three days for the
 [Ludum Dare 52](https://ldjam.com/events/ludum-dare/52/star-journey-of-a-little-fur-seal) game jam. The seal turns on
-the spot all the time; click to hop the way it faces, collect what the sea washes up and keep away from the sharp
-things. After seven waves the sea turns to blood.
+the spot; hold the mouse button to charge a jump the way it faces and release to jump, collect what the sea washes up
+and keep away from the sharp things. After seven waves the sea turns to blood.
 
 The Windows build is on [itch.io](https://the-cyberdog-we-deserve.itch.io/star-journey-of-a-little-fur-seal).
 
@@ -13,7 +13,8 @@ The Windows build is on [itch.io](https://the-cyberdog-we-deserve.itch.io/star-j
 
 | Action | Input |
 | --- | --- |
-| Hop the way the seal faces | Left mouse button |
+| Stop turning and charge a jump; a line on the sand shows where it lands | Hold the left mouse button |
+| Jump the way the seal faces, farther the longer you held | Release the button |
 
 - Every wave washes ten things onto the beach. Bottles, buckets, cans and slippers give 100 points each; broken
   bottles and sea urchins hurt. Three hits and the seal is done.
