@@ -401,6 +401,8 @@ MonoBehaviour:
   - {fileID: 636606535}
   - {fileID: 2139996382}
   _batchSize: 10
+  _terrain: {fileID: 1620751966}
+  _seaDirection: {x: -0.984, y: 0, z: -0.177}
 --- !u!1 &50034855
 GameObject:
   m_ObjectHideFlags: 0
