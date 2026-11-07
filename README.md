@@ -56,8 +56,11 @@ inside it, so that is the one `Resources` folder in the project.
 
 ## How the code fits together
 
-- `FurSeal` turns every frame, hops on a click and handles what it touches: a `Pickup` adds points, a `Hazard` is a
-  hit. It raises `ScoreChanged`, `HitsChanged` and `Died`.
+- `FurSeal` turns while it stands, charges a jump while the button is held and jumps with real physics on release.
+  It handles what it touches: a `Pickup` adds points, a `Hazard` is a hit. It raises `ScoreChanged`, `HitsChanged`
+  and `Died`.
+- `JumpInput` turns presses on the beach, but not on buttons, into the seal's `Press` and `Release`;
+  `JumpArcPreview` draws the arc of the charged jump.
 - Two `Tide`s move the clear sea and the sea of blood in waves and raise `RiseStarted`, `Crested`, `FallStarted` and
   `Completed`.
 - `TideSpawner` washes a batch of props in with every wave and sweeps the previous one out, moving them all from its
